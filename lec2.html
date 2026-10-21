@@ -22,36 +22,36 @@
 
 <h2><span class="h2no">1</span>핵심 개념 다섯 개</h2>
 <div class="bx bx-def">
-  <div class="bx-t"><span class="dot"></span>개념 <span class="en">Pivot Table(피벗 테이블)</span></div>
+  <p class="bx-h"><b>개념 <span class="en">Pivot Table(피벗 테이블)</span></b></p>
   <ul>
     <li>한 행 = 거래 하나인 원자료를, 수식 없이 <span class="k-blue">행 × 열 요약표</span>(합계·개수·평균·비율)로 바꾸는 도구. 데이터가 늘어도 새로 고침만 하면 된다.</li>
     <li>답할 수 있는 질문: 매출 80%를 내는 제품은? 매장별 매출은? 계절성이 있나? 프로모션이 판매를 늘리나? 광고를 누구에게?</li>
   </ul>
 </div>
 <div class="bx bx-def">
-  <div class="bx-t"><span class="dot"></span>개념 <span class="en">Pareto 80-20(파레토 법칙)</span></div>
+  <p class="bx-h"><b>개념 <span class="en">Pareto 80-20(파레토 법칙)</span></b></p>
   <p>매출의 대부분(80%)이 소수 제품(20%)에서 나온다 → 재고·진열을 그 제품에 집중한다. 실제 데이터에선 딱 20%가 안 나올 수 있으니 <span class="k-red">나온 숫자를 그대로 보고</span>한다.</p>
 </div>
 <div class="bx bx-def">
-  <div class="bx-t"><span class="dot"></span>개념 <span class="en">Seasonality(계절성)</span></div>
+  <p class="bx-h"><b>개념 <span class="en">Seasonality(계절성)</span></b></p>
   <p>특정 달·계절에 판매가 몰리는 패턴. 판단 기준: 매출이 고르면 달마다 <span class="k-blue">1/12 = 8.33%</span> — 여기서 크게 벗어나는 달이 있는지 본다.</p>
 </div>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>개념 + 주의 <span class="en">Confounding(교란)</span></div>
+<div class="nb">
+  <p class="bx-h"><b>개념 + 주의 <span class="en">Confounding(교란)</span></b></p>
   <ul>
     <li>두 원인이 같이 움직이면 효과를 따로 못 본다. 프로모션이 주말에 몰리면, 판매 증가가 요일 때문인지 프로모션 때문인지 알 수 없다.</li>
     <li><span class="k-red">피벗(기술통계)으로는 교란을 분리할 수 없다</span> — 분리하는 것이 회귀(regression)가 하는 일.</li>
   </ul>
 </div>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>주의 <span class="en">합계 vs 평균</span></div>
+<div class="nb">
+  <p class="bx-h"><b>주의 <span class="en">합계 vs 평균</span></b></p>
   <p>그룹마다 날 수(표본 수)가 다르면 <span class="k-red">합계 비교는 왜곡</span>된다. 요일별 비교처럼 날 수가 다른 경우는 평균으로.</p>
 </div>
 
 <h2><span class="h2no">2</span>사례 1 — PARETO 철물점</h2>
 <p>한 행 = 거래 한 건. 같은 제품·달·매장이 두 줄이면 두 번 팔린 것이고, Price를 더하면 매출이다.</p>
-<div class="bx bx-ex">
-  <div class="bx-t"><span class="dot"></span>피벗 필드 목록의 네 칸</div>
+<div class="nb">
+  <p class="bx-h"><b>피벗 필드 목록의 네 칸</b></p>
   <div class="tblwrap"><table>
     <thead><tr><th>칸</th><th>하는 일</th><th>첫 예제</th></tr></thead>
     <tbody>
@@ -67,8 +67,8 @@
   <li>매장별 매출: <span class="k-blue">다운타운 52% vs 업타운 48%</span>.</li>
   <li>월별 매출: Month를 행, Price를 값에 두 번 → 하나는 금액, 하나는 값 필드 설정 → 열 합계 비율. 예: 1월 $845 = 연 매출의 8.81% → 8.33%와 가까우니 <span class="k-blue">계절성 거의 없음</span>.</li>
 </ul>
-<div class="bx bx-ex">
-  <div class="bx-t"><span class="dot"></span>파레토 적용 — 값 필터로 80% 제품 찾기</div>
+<div class="nb">
+  <p class="bx-h"><b>파레토 적용 — 값 필터로 80% 제품 찾기</b></p>
   <ol>
     <li>제품별 매출 피벗에서 행 레이블 드롭다운 → 값 필터 → 상위 10 (이름만 10, 기준은 바꿀 수 있음)</li>
     <li>항목을 <b>백분율</b>로, 숫자를 <b>80</b>으로</li>
@@ -81,8 +81,8 @@
   <div class="stat"><div class="v">30</div><div class="l">전체 제품 수</div></div>
   <div class="stat"><div class="v">20%</div><div class="l">= 매출 80%를 내는 비중</div></div>
 </div>
-<div class="bx bx-key">
-  <div class="bx-t"><span class="dot"></span>수업 토론</div>
+<div class="nb">
+  
   <ul>
     <li>"제품별 매출 차이를 왜 보나?" → 품절 방지, 안 팔리는 제품 정리 = 재고 관리. 이커머스는 재고 비용이 운영비의 25~30% (쿠팡 신선식품은 냉장 때문에 더 큼).</li>
     <li>학생 질문: 매출은 가격×수량이 섞였는데? → 이 데이터는 가격이 안 변해서 OK. <span class="k-red">가격이 바뀌면 따로 봐야</span> 한다.</li>
@@ -97,8 +97,8 @@
 <h3>계절성</h3>
 <p>날짜를 행 → 우클릭 → 그룹 → <b>월</b>, 값은 평균, 꺾은선 차트.</p>
 <figure><div class="figbox"><svg viewBox='0 0 560 290' xmlns='http://www.w3.org/2000/svg' role='img'><text x='280.0' y='16' font-size='12' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>월별 하루 평균 판매량 (개략)</text><line x1='44' y1='256.0' x2='440' y2='256.0' stroke='#e8e6e0'/><text x='38' y='259.5' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>0</text><line x1='44' y1='210.8' x2='440' y2='210.8' stroke='#e8e6e0'/><text x='38' y='214.3' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>152</text><line x1='44' y1='165.6' x2='440' y2='165.6' stroke='#e8e6e0'/><text x='38' y='169.1' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>304</text><line x1='44' y1='120.4' x2='440' y2='120.4' stroke='#e8e6e0'/><text x='38' y='123.9' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>456</text><line x1='44' y1='75.2' x2='440' y2='75.2' stroke='#e8e6e0'/><text x='38' y='78.69999999999999' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>608</text><line x1='44' y1='30.0' x2='440' y2='30.0' stroke='#e8e6e0'/><text x='38' y='33.5' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>760</text><line x1='44' y1='256' x2='440' y2='256' stroke='#b9b6ac' stroke-width='1.2'/><line x1='44' y1='256' x2='44' y2='30' stroke='#b9b6ac' stroke-width='1.2'/><text x='44.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>1월</text><text x='80.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>2월</text><text x='116.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>3월</text><text x='152.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>4월</text><text x='188.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>5월</text><text x='224.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>6월</text><text x='260.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>7월</text><text x='296.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>8월</text><text x='332.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>9월</text><text x='368.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>10월</text><text x='404.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>11월</text><text x='440.0' y='271' font-size='10' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>12월</text><path d='M44.0,211.4 L80.0,212.9 L116.0,208.4 L152.0,199.5 L188.0,184.6 L224.0,160.8 L260.0,138.5 L296.0,141.5 L332.0,169.8 L368.0,193.6 L404.0,205.4 L440.0,209.9' fill='none' stroke='#1e3a8a' stroke-width='2.2' stroke-linejoin='round'/><circle cx='44.0' cy='211.4' r='3' fill='#1e3a8a'/><circle cx='80.0' cy='212.9' r='3' fill='#1e3a8a'/><circle cx='116.0' cy='208.4' r='3' fill='#1e3a8a'/><circle cx='152.0' cy='199.5' r='3' fill='#1e3a8a'/><circle cx='188.0' cy='184.6' r='3' fill='#1e3a8a'/><circle cx='224.0' cy='160.8' r='3' fill='#1e3a8a'/><circle cx='260.0' cy='138.5' r='3' fill='#1e3a8a'/><circle cx='296.0' cy='141.5' r='3' fill='#1e3a8a'/><circle cx='332.0' cy='169.8' r='3' fill='#1e3a8a'/><circle cx='368.0' cy='193.6' r='3' fill='#1e3a8a'/><circle cx='404.0' cy='205.4' r='3' fill='#1e3a8a'/><circle cx='440.0' cy='209.9' r='3' fill='#1e3a8a'/><path d='M44.0,101.4 L80.0,99.9 L116.0,102.9 L152.0,98.4 L188.0,99.9 L224.0,101.4 L260.0,99.0 L296.0,100.8 L332.0,102.0 L368.0,99.9 L404.0,101.4 L440.0,98.4' fill='none' stroke='#3b6fd4' stroke-width='2.2' stroke-linejoin='round'/><circle cx='44.0' cy='101.4' r='3' fill='#3b6fd4'/><circle cx='80.0' cy='99.9' r='3' fill='#3b6fd4'/><circle cx='116.0' cy='102.9' r='3' fill='#3b6fd4'/><circle cx='152.0' cy='98.4' r='3' fill='#3b6fd4'/><circle cx='188.0' cy='99.9' r='3' fill='#3b6fd4'/><circle cx='224.0' cy='101.4' r='3' fill='#3b6fd4'/><circle cx='260.0' cy='99.0' r='3' fill='#3b6fd4'/><circle cx='296.0' cy='100.8' r='3' fill='#3b6fd4'/><circle cx='332.0' cy='102.0' r='3' fill='#3b6fd4'/><circle cx='368.0' cy='99.9' r='3' fill='#3b6fd4'/><circle cx='404.0' cy='101.4' r='3' fill='#3b6fd4'/><circle cx='440.0' cy='98.4' r='3' fill='#3b6fd4'/><path d='M44.0,140.0 L80.0,138.5 L116.0,140.6 L152.0,139.4 L188.0,140.0 L224.0,141.5 L260.0,139.4 L296.0,140.6 L332.0,140.0 L368.0,138.5 L404.0,139.4 L440.0,140.0' fill='none' stroke='#7aa2e8' stroke-width='2.2' stroke-linejoin='round'/><circle cx='44.0' cy='140.0' r='3' fill='#7aa2e8'/><circle cx='80.0' cy='138.5' r='3' fill='#7aa2e8'/><circle cx='116.0' cy='140.6' r='3' fill='#7aa2e8'/><circle cx='152.0' cy='139.4' r='3' fill='#7aa2e8'/><circle cx='188.0' cy='140.0' r='3' fill='#7aa2e8'/><circle cx='224.0' cy='141.5' r='3' fill='#7aa2e8'/><circle cx='260.0' cy='139.4' r='3' fill='#7aa2e8'/><circle cx='296.0' cy='140.6' r='3' fill='#7aa2e8'/><circle cx='332.0' cy='140.0' r='3' fill='#7aa2e8'/><circle cx='368.0' cy='138.5' r='3' fill='#7aa2e8'/><circle cx='404.0' cy='139.4' r='3' fill='#7aa2e8'/><circle cx='440.0' cy='140.0' r='3' fill='#7aa2e8'/><path d='M44.0,235.2 L80.0,234.6 L116.0,235.8 L152.0,234.9 L188.0,235.2 L224.0,235.5 L260.0,234.6 L296.0,235.2 L332.0,234.9 L368.0,235.5 L404.0,234.6 L440.0,235.2' fill='none' stroke='#c3d4f5' stroke-width='2.2' stroke-linejoin='round'/><circle cx='44.0' cy='235.2' r='3' fill='#c3d4f5'/><circle cx='80.0' cy='234.6' r='3' fill='#c3d4f5'/><circle cx='116.0' cy='235.8' r='3' fill='#c3d4f5'/><circle cx='152.0' cy='234.9' r='3' fill='#c3d4f5'/><circle cx='188.0' cy='235.2' r='3' fill='#c3d4f5'/><circle cx='224.0' cy='235.5' r='3' fill='#c3d4f5'/><circle cx='260.0' cy='234.6' r='3' fill='#c3d4f5'/><circle cx='296.0' cy='235.2' r='3' fill='#c3d4f5'/><circle cx='332.0' cy='234.9' r='3' fill='#c3d4f5'/><circle cx='368.0' cy='235.5' r='3' fill='#c3d4f5'/><circle cx='404.0' cy='234.6' r='3' fill='#c3d4f5'/><circle cx='440.0' cy='235.2' r='3' fill='#c3d4f5'/><line x1='452' y1='36' x2='468' y2='36' stroke='#1e3a8a' stroke-width='2.5'/><text x='473' y='39.5' font-size='10' fill='#333' text-anchor='start' font-family='Noto Sans KR,sans-serif'>스무디</text><line x1='452' y1='53' x2='468' y2='53' stroke='#3b6fd4' stroke-width='2.5'/><text x='473' y='56.5' font-size='10' fill='#333' text-anchor='start' font-family='Noto Sans KR,sans-serif'>쿠키</text><line x1='452' y1='70' x2='468' y2='70' stroke='#7aa2e8' stroke-width='2.5'/><text x='473' y='73.5' font-size='10' fill='#333' text-anchor='start' font-family='Noto Sans KR,sans-serif'>커피</text><line x1='452' y1='87' x2='468' y2='87' stroke='#c3d4f5' stroke-width='2.5'/><text x='473' y='90.5' font-size='10' fill='#333' text-anchor='start' font-family='Noto Sans KR,sans-serif'>케이크·파이</text></svg></div><figcaption>월별 하루 평균. 스무디만 여름에 솟고 나머지 넷은 1년 내내 평평하다. (꺾은선 모양은 슬라이드 개략)</figcaption></figure>
-<div class="bx bx-tip">
-  <div class="bx-t"><span class="dot"></span>사장이 할 일 (스무디 여름 급증 대응)</div>
+<div class="nb">
+  <p class="bx-h"><b>사장이 할 일 (스무디 여름 급증 대응)</b></p>
   <ul>
     <li>여름엔 이미 수요가 있으니 <b>스무디 광고비는 줄이고</b> 다른 데 쓴다</li>
     <li>재료 공급 확보 · 여름 인력 충원</li>
@@ -116,22 +116,22 @@
 <tr><td class="l">스무디</td><td>213.8</td><td>222.1</td><td>+1.9%</td></tr>
 <tr><td class="l">커피</td><td>377.2</td><td>403.1</td><td>+3.4%</td></tr>
 </tbody></table></div>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>주의 <span class="en">성장률 ≠ 기여도</span></div>
+<div class="nb">
+  <p class="bx-h"><b>주의 <span class="en">성장률 ≠ 기여도</span></b></p>
   <p>케이크가 제일 빨리 크지만(+4.9%) 비중이 작고, 쿠키·커피가 매출은 훨씬 크다. <span class="k-red">성장률이 아니라 기여도로 판단</span>한다.</p>
 </div>
 <h3>프로모션 효과</h3>
 <p>같은 평균 설정에서 promotion을 행 → 프로모션 날 / 아닌 날 두 줄.</p>
 <figure><div class="figbox"><svg viewBox='0 0 430 250' xmlns='http://www.w3.org/2000/svg' role='img'><text x='215.0' y='15' font-size='12.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>프로모션 날 하루 평균 판매 증가율</text><line x1='34' y1='210.0' x2='420' y2='210.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='164.0' x2='420' y2='164.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='118.0' x2='420' y2='118.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='72.0' x2='420' y2='72.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='210' x2='420' y2='210' stroke='#b9b6ac' stroke-width='1.2'/><rect x='49.6' y='94.6' width='46.0' height='115.4' fill='#2456c4' rx='2'/><text x='72.6' y='89.58181818181816' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>13.8%</text><text x='72.6' y='225' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>케이크</text><rect x='126.8' y='97.9' width='46.0' height='112.1' fill='#2456c4' rx='2'/><text x='149.8' y='92.92727272727274' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>13.4%</text><text x='149.8' y='225' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>파이</text><rect x='204.0' y='74.5' width='46.0' height='135.5' fill='#2456c4' rx='2'/><text x='227.0' y='69.50909090909093' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>16.2%</text><text x='227.0' y='225' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>쿠키</text><rect x='281.2' y='55.3' width='46.0' height='154.7' fill='#2456c4' rx='2'/><text x='304.2' y='50.27272727272728' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>18.5%</text><text x='304.2' y='225' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>스무디</text><rect x='358.4' y='98.8' width='46.0' height='111.2' fill='#2456c4' rx='2'/><text x='381.40000000000003' y='93.76363636363635' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>13.3%</text><text x='381.40000000000003' y='225' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>커피</text></svg></div><figcaption>프로모션 날 하루 평균 판매 증가율. 다섯 제품 모두 13~19% 증가.</figcaption></figure>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>주의 <span class="en">프로모션 해석의 두 함정</span></div>
+<div class="nb">
+  <p class="bx-h"><b>주의 <span class="en">프로모션 해석의 두 함정</span></b></p>
   <ul>
     <li><span class="k-red">교란</span>: 다른 요인을 먼저 고정해야 한다. 스무디 프로모션이 여름에 몰렸다면 계절성 때문일 수 있다.</li>
     <li><span class="k-red">비용</span>: 늘어난 매출보다 프로모션 비용이 크면 하면 안 된다.</li>
   </ul>
 </div>
-<div class="bx bx-key">
-  <div class="bx-t"><span class="dot"></span>수업 토론</div>
+<div class="nb">
+  
   <ul>
     <li>슬라이서로 평일/주말을 나누면: 쿠키는 평일, 스무디·커피는 주말에 효과 큼. 케이크는 차이 없음 (학생: "케이크는 특별한 날에 사니까" → 교수님 동의).</li>
     <li>묶음 토론: "쿠키·커피가 잘 팔리니 묶자" → 교수님: <span class="hl">이미 잘 팔리는 둘을 묶으면 할인만 손해</span>. 게다가 이 데이터는 한 손님이 뭘 같이 샀는지 모른다.</li>
@@ -143,8 +143,8 @@
 <h3>나이</h3>
 <p>Age를 행과 값에 → 합계를 <span class="k-red">개수로</span> (합계는 의미 없음) → 열 합계 비율 → 우클릭 → 그룹 → 시작 8, 간격 10 → 세로 막대.</p>
 <figure><div class="figbox"><svg viewBox='0 0 560 260' xmlns='http://www.w3.org/2000/svg' role='img'><text x='280.0' y='15' font-size='12.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>구독자 나이 분포 (%)</text><line x1='34' y1='220.0' x2='550' y2='220.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='171.5' x2='550' y2='171.5' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='123.0' x2='550' y2='123.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='74.5' x2='550' y2='74.5' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='220' x2='550' y2='220' stroke='#b9b6ac' stroke-width='1.2'/><rect x='42.9' y='171.8' width='29.1' height='48.2' fill='#7aa2e8' rx='2'/><text x='57.45454545454545' y='166.7939393939394' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>8.2%</text><text x='57.45454545454545' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>8-17</text><rect x='89.8' y='50.7' width='29.1' height='169.3' fill='#1e3a8a' rx='2'/><text x='104.36363636363636' y='45.69090909090909' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>28.8%</text><text x='104.36363636363636' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>18-27</text><rect x='136.7' y='50.7' width='29.1' height='169.3' fill='#1e3a8a' rx='2'/><text x='151.27272727272725' y='45.69090909090909' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>28.8%</text><text x='151.27272727272725' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>28-37</text><rect x='183.6' y='116.5' width='29.1' height='103.5' fill='#2456c4' rx='2'/><text x='198.1818181818182' y='111.53333333333333' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>17.6%</text><text x='198.1818181818182' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>38-47</text><rect x='230.5' y='173.0' width='29.1' height='47.0' fill='#3b6fd4' rx='2'/><text x='245.09090909090907' y='167.96969696969697' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>8.0%</text><text x='245.09090909090907' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>48-57</text><rect x='277.5' y='204.7' width='29.1' height='15.3' fill='#7aa2e8' rx='2'/><text x='292.0' y='199.71515151515152' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>2.6%</text><text x='292.0' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>58-67</text><rect x='324.4' y='201.2' width='29.1' height='18.8' fill='#7aa2e8' rx='2'/><text x='338.9090909090909' y='196.1878787878788' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>3.2%</text><text x='338.9090909090909' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>68-77</text><rect x='371.3' y='215.3' width='29.1' height='4.7' fill='#7aa2e8' rx='2'/><text x='385.8181818181818' y='210.2969696969697' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>0.8%</text><text x='385.8181818181818' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>78-87</text><rect x='418.2' y='212.9' width='29.1' height='7.1' fill='#7aa2e8' rx='2'/><text x='432.7272727272727' y='207.94545454545454' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>1.2%</text><text x='432.7272727272727' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>88-97</text><rect x='465.1' y='218.8' width='29.1' height='1.2' fill='#7aa2e8' rx='2'/><text x='479.6363636363636' y='213.8242424242424' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>0.2%</text><text x='479.6363636363636' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>98-107</text><rect x='512.0' y='216.5' width='29.1' height='3.5' fill='#7aa2e8' rx='2'/><text x='526.5454545454545' y='211.47272727272727' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>0.6%</text><text x='526.5454545454545' y='235' font-size='9' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>108-117</text></svg></div><figcaption>18~27세와 28~37세가 각 28.8% → 18~37세가 57.6% (약 590명). 이 층이 ESPN이 광고를 살 대상.</figcaption></figure>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>주의 <span class="en">이상값 먼저 걸러라</span></div>
+<div class="nb">
+  <p class="bx-h"><b>주의 <span class="en">이상값 먼저 걸러라</span></b></p>
   <p>97세 넘는 기록이 약 8개 있다. 나이 확인을 안 받으니 아무 숫자나 넣은 것 → <span class="k-red">결론을 내기 전에 걸러야</span> 한다.</p>
 </div>
 <h3>소득</h3>
@@ -170,14 +170,14 @@
 <tr><td class="l"><b>소득</b></td><td>86.8%가 $54,000 이상</td><td class="l">당시 미국 중위 가구소득(약 $53,000)보다 높음 → 광고 단가를 높게 받을 근거, <b>제일 중요</b></td></tr>
 <tr><td class="l"><b>거주지</b></td><td>85.5%가 교외·도시</td><td class="l">대도시 방송국</td></tr>
 </tbody></table></div>
-<div class="bx bx-tip">
-  <div class="bx-t"><span class="dot"></span>한 줄 정리</div>
+<div class="nb">
+  
   <p>젊은 남성, 소득 높음, 도시권 — <span class="hl">광고주에게 파는 건 시청자 수보다 구매력</span>이다. 주의: 1,024명 표본이라 작은 구간은 오차가 크고, 불가능한 나이는 먼저 확인.</p>
 </div>
 
 <h2><span class="h2no">5</span>시험 포인트 정리</h2>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>놓치기 쉬운 곳</div>
+<div class="nb">
+  
   <ul>
     <li>요일·그룹별 비교에서 날 수가 다르면 <span class="k-red">합계 말고 평균</span>.</li>
     <li>계절성 기준선은 <span class="k-red">1/12 = 8.33%</span>.</li>

@@ -20,8 +20,8 @@
 <p class="psub">수업 파일별로 수업에서 한 것 · 기본 조작 · 피벗 · 날짜/조회/요약 함수 · 차트와 추세선 · 목표값 찾기 · 해 찾기</p>
 <div class="body notes">
 
-<div class="bx bx-key">
-  <div class="bx-t"><span class="dot"></span>파일 안내</div>
+<div class="nb">
+  
   <ul>
     <li>연습용 파일: <a href="files/마케팅_엑셀_연습.xlsx">마케팅_엑셀_연습.xlsx</a> (수업 파일 합본, 노란 칸 채우기, 마지막 시트에 정답)</li>
     <li>숙제 2(돼지갈비, 날 가격)는 4강 면도기 파일과 같은 구조 → 차트·추세선·해 찾기 토글 참고.</li>
@@ -29,8 +29,8 @@
 </div>
 
 <h2><span class="h2no">1</span>기본 조작</h2>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>함정 — 수업에서 실제로 나온 실수</div>
+<div class="nb">
+  <p class="bx-h"><b>함정 — 수업에서 실제로 나온 실수</b></p>
   <ul>
     <li>이름 붙인 범위는 끌어서 복사해도 안 움직인다 ($ 안 붙여도 됨). <span class="k-red">그래서 <code>=MODE(Cake)</code>를 오른쪽으로 끌면 다른 제품 칸도 계속 Cake</span> → 제품별로 옆으로 끌 땐 H12:H1106 같은 일반 범위로.</li>
     <li>교수님이 수업 중 실수: 수요표 만들 때 a와 탄력성 셀을 고정 안 해서 아래로 끌자 값이 틀어짐 → 바뀌어야 하는 건 가격뿐, <span class="k-red">나머지 상수 셀은 $로 고정</span>.</li>
@@ -45,8 +45,8 @@
   <li>숫자 필드는 기본이 합계 → 값 우클릭 → 값 필드 설정 → 개수 / 평균. 값에 제품 다섯 개를 넣었으면 <span class="k-red">다섯 개 각각</span> 평균으로 바꿔야 함 (Bakery 요일별: 합계 그대로면 일요일 케이크 15,054처럼 나옴).</li>
   <li>비율: 값 필드 설정 → 값 표시 형식 → 열 합계 비율 / 행 합계 비율. 같은 필드를 값에 두 번 넣으면 금액과 비율을 나란히 볼 수 있음.</li>
 </ul>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>비율 세 가지 구분 — 무엇을 분모로 할지 먼저 정하기</div>
+<div class="nb">
+  <p class="bx-h"><b>비율 세 가지 구분 — 무엇을 분모로 할지 먼저 정하기</b></p>
   <ul>
     <li><b>열 합계 비율</b>: 열마다 100% / <b>행 합계 비율</b>: 행마다 100% / <b>총합계 비율</b>: 표 전체가 100%</li>
     <li>필드를 행에 놓으면 열 합계 비율, 열에 놓으면 행 합계 비율을 본다.</li>
@@ -115,8 +115,8 @@
   </table>
   <div class="xl-cap">WEEKDAY로 요일 번호(F열)를 만들고, VLOOKUP으로 요일 이름(E열)을 가져온다. 표(A13:B19)는 F4로 고정.</div>
 </div>
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>조회 함수 함정 (3강 정리 복습)</div>
+<div class="nb">
+  <p class="bx-h"><b>조회 함수 함정 (3강 정리 복습)</b></p>
   <ul>
     <li>넷째 인수 FALSE/0 = 정확히 일치 — <b>거의 항상 이것, 기본값이 아니라 직접 써야 함</b>. TRUE/1 = 근사 (정렬 안 되면 조용히 틀림).</li>
     <li>MATCH(값, 범위, 0) — 마지막 0 생략하면 1(근사) → Verizon에서 학생들 매출이 달랐던 원인.</li>
@@ -275,8 +275,8 @@
 </div>
 
 <h2><span class="h2no">7</span>엑셀 메뉴 한글 이름</h2>
-<div class="bx bx-ex">
-  <div class="bx-t"><span class="dot"></span>메뉴 경로 모음</div>
+<div class="nb">
+  <p class="bx-h"><b>메뉴 경로 모음</b></p>
   <ul>
     <li>피벗 테이블: 삽입 → 피벗 테이블 / 값 필드 설정: 값 칸 우클릭 / 그룹: 행 레이블 우클릭 / 슬라이서: 삽입 → 슬라이서</li>
     <li>목표값 찾기: 데이터 → 가상 분석(What-If Analysis) → 목표값 찾기(Goal Seek)</li>

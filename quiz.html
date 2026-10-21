@@ -20,8 +20,8 @@
 <p class="psub">2026-11-04 (수) 12:30 · 교실에서 노트북 + 엑셀 + 해 찾기로 풂 (숙제와 같은 형식)</p>
 <div class="body notes">
 
-<div class="bx bx-warn">
-  <div class="bx-t"><span class="dot"></span>예고된 범위</div>
+<div class="nb">
+  
   <ul>
     <li>퀴즈 예고 (4강): <span class="k-red">면도기 가격과 날 가격 두 개</span>를 구하는 문제.</li>
     <li>날 가격·날 원가가 따로 주어지면 날 이익 = (날 가격 − 날 원가) × 날 개수, <b>변수 셀 2개</b> (면도기 가격, 날 가격).</li>
@@ -29,8 +29,8 @@
   </ul>
 </div>
 
-<div class="bx bx-key">
-  <div class="bx-t"><span class="dot"></span>풀이 루틴 — 어떤 문제든 같은 순서</div>
+<div class="nb">
+  <p class="bx-h"><b>풀이 루틴 — 어떤 문제든 같은 순서</b></p>
   <div class="flow"><span class="chip">① 문제 읽고 변수 정하기</span><span class="arr">→</span><span class="chip">② 수요식 추정 (두 점 → 추세선/목표값 찾기)</span><span class="arr">→</span><span class="chip">③ 수요식·이익식을 셀에 입력</span><span class="arr">→</span><span class="chip">④ 해 찾기 (목표·변수·제약·해법)</span><span class="arr">→</span><span class="chip">⑤ 결과 해석 ("이 숫자로 어떤 결정?")</span></div>
 </div>
 
@@ -66,7 +66,7 @@
           <li><span class="st-t">(b) 날 이익 추가</span>날 이익 <code>=G13*G12*G9</code> (50개 × $0.15 × 수요), 총이익 <code>=G11+G14</code>를 목표로 다시 해 찾기 → <b>가격 $1.00, 수요 1,560만 개, 총이익 $101.4M</b> (면도기 −15.6 + 날 117).</li>
           <li><span class="st-t">해석</span>이익이 면도기가 아니라 날에서 나오므로, 면도기를 원가($2) 아래로 내려 날 판매를 늘리는 게 이득 = 미끼 상품(loss leader).</li>
         </ol>
-        <div class="ans-final"><div class="lb">정답</div><div class="val">(a) <span class="hl">$4.75 / $18.15M</span> · (b) <span class="hl">$1.00 / 총이익 $101.4M</span> — 날에서 벌려고 면도기를 싸게</div></div>
+        <div class="ans-final"><div class="val">(a) <span class="hl">$4.75 / $18.15M</span> · (b) <span class="hl">$1.00 / 총이익 $101.4M</span> — 날에서 벌려고 면도기를 싸게</div></div>
       </div>
     </details>
   </div>
@@ -99,7 +99,7 @@
           <li><span class="st-t">(b) a 추정</span>목표값 찾기: 수식 셀 =a*100^(-2), 찾는 값 500, 바꿀 셀 a → a = 5,000,000.</li>
           <li><span class="st-t">(b) 최적화</span>이익 (p−50)·5,000,000·p⁻² 미분 → −p⁻² + 100p⁻³ = 0 → p = 100. <span class="why">거듭제곱에서 최적 가격 = 원가 × b/(b+1) = 50 × 2 = 100과 일치.</span></li>
         </ol>
-        <div class="ans-final"><div class="lb">정답</div><div class="val">(a) (b) 모두 <span class="hl">최적 가격 $100</span> — 우연이 아니라 현재 점이 이미 최적이 되도록 만든 연습용 숫자</div></div>
+        <div class="ans-final"><div class="val">(a) (b) 모두 <span class="hl">최적 가격 $100</span> — 우연이 아니라 현재 점이 이미 최적이 되도록 만든 연습용 숫자</div></div>
       </div>
     </details>
   </div>
@@ -129,7 +129,7 @@
           <li><span class="st-t">결론</span>고용한다. 시간당 $1.25의 이익이 늘어난다.</li>
           <li><span class="st-t">한계 명시</span>몇 시간까지 사도 되는지는 λ만으로 모른다. <span class="why">사고 나면 문제가 바뀌니 다시 풀어야 한다 (수업에서 나온 학생 질문).</span></li>
         </ol>
-        <div class="ans-final"><div class="lb">정답</div><div class="val">이득 — <span class="hl">$10 &lt; $11.25라 시간당 +$1.25</span>. (한계: 한 단위 가치일 뿐, 대량 고용은 재계산)</div></div>
+        <div class="ans-final"><div class="val">이득 — <span class="hl">$10 &lt; $11.25라 시간당 +$1.25</span>. (한계: 한 단위 가치일 뿐, 대량 고용은 재계산)</div></div>
       </div>
     </details>
   </div>
@@ -160,7 +160,7 @@
           <li><span class="st-t">(b) 순위</span><code>=RANK(T32, $T$32:$T$38, 0)</code> → 월요일 4등. <span class="why">$ 고정을 빼면 아래로 끌 때 범위가 밀린다.</span></li>
           <li><span class="st-t">(c) 조건 두 개</span><code>=COUNTIFS(E12:E1106, Q32, Cake, "&lt;&gt;0")</code>. <span class="why">수업에서 나온 학생 질문 — 판매 0인 월요일 제외.</span></li>
         </ol>
-        <div class="ans-final"><div class="lb">정답</div><div class="val">(a) <span class="hl">=AVERAGEIF($E$12:$E$1106,Q32,Cake)</span> · (b) <span class="hl">=RANK(T32,$T$32:$T$38,0)</span> · (c) <span class="hl">=COUNTIFS(E12:E1106,Q32,Cake,"&lt;&gt;0")</span></div></div>
+        <div class="ans-final"><div class="val">(a) <span class="hl">=AVERAGEIF($E$12:$E$1106,Q32,Cake)</span> · (b) <span class="hl">=RANK(T32,$T$32:$T$38,0)</span> · (c) <span class="hl">=COUNTIFS(E12:E1106,Q32,Cake,"&lt;&gt;0")</span></div></div>
       </div>
     </details>
   </div>
