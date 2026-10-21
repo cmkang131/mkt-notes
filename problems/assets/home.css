@@ -1,6 +1,6 @@
 /* home (목차) v2 — 카드는 박스가 아니라 얇은 가로선으로 구분된 링크 */
-:root{--ink:#1a1a1a;--red:#b03a32;--gray:#666;--blue:#2456c4;--rule:#1a1a1a;
-  --blue-bg:#eef3fd;--blue-bd:#c9d8f6;--blue-ink:#1d4bb5;--card-bd:#e6e3da}
+:root{--ink:#1a1a1a;--red:#9e2b25;--gray:#666;--rule:#1a1a1a;
+  --card-bd:#e6e3da}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR','Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:var(--ink);-webkit-tap-highlight-color:transparent}
@@ -10,14 +10,14 @@ h1{font-size:28px;font-weight:900;letter-spacing:-0.01em;color:var(--ink);line-h
 .sub{font-size:15.5px;color:#444;margin-top:10px;line-height:1.6;word-break:keep-all}
 section{margin-top:36px;border-top:1.5px solid var(--rule);padding-top:18px}
 h2{font-size:17px;font-weight:900;color:var(--ink);margin-bottom:6px}
-h2 .h2no{color:var(--blue);margin-right:.3em}
+h2 .h2no{color:var(--ink);margin-right:.3em}
 a.card{display:block;position:relative;text-decoration:none;color:var(--ink);border:none;border-top:1px solid #d9d9d9;padding:14px 34px 14px 4px;cursor:pointer;background:#fff}
-a.card:hover .card-t{color:var(--blue)}
-a.card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+a.card:hover .card-t{color:var(--ink)}
+a.card:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .go{position:absolute;right:4px;top:14px;color:#aaa;font-size:17px;transition:transform .12s,color .12s}
-a.card:hover .go{color:var(--blue);transform:translateX(3px)}
+a.card:hover .go{color:var(--ink);transform:translateX(3px)}
 .card-t{font-weight:700;font-size:16.5px}
-.card-t .no{color:var(--blue);margin-right:.3em}
+.card-t .no{color:var(--ink);margin-right:.3em}
 .card-d{font-size:14.5px;color:#444;margin-top:6px;line-height:1.55}
 .card-m{font-size:13px;color:var(--gray);margin-top:8px}
 .notice{border:none;border-top:1px solid #d9d9d9;border-bottom:1px solid #d9d9d9;background:#fff;padding:12px 4px;margin-top:16px;font-size:14.5px;line-height:1.6}
@@ -31,3 +31,17 @@ a.card:hover .go{color:var(--blue);transform:translateX(3px)}
   .go{display:none}
   a.card{border-top-color:#999}
 }
+
+/* ============ v3 이식 (2026-10-22): 팔레트 ============ */
+.lt{color:var(--ink);font-weight:700}
+/* v3.2 dark mode: invert + hue-rotate keeps accent red as red; backgrounds set so result is #121212 */
+html[data-theme="dark"]{filter:invert(1) hue-rotate(180deg);background:#ededed}
+html[data-theme="dark"] body,html[data-theme="dark"] .paper{background:#ededed}
+html[data-theme="dark"] svg,html[data-theme="dark"] figure{background:transparent}
+.theme-toggle{position:fixed;top:10px;right:12px;z-index:50;font:500 12px 'Noto Sans KR',sans-serif;color:#1a1a1a;background:#fff;border:1px solid #1a1a1a;border-radius:4px;padding:3px 9px;cursor:pointer}
+html[data-theme="dark"] .theme-toggle{background:#fff}
+@media print{html[data-theme="dark"]{filter:none;background:#fff}html[data-theme="dark"] body,html[data-theme="dark"] .paper{background:#fff}.theme-toggle{display:none}}
+
+html[data-theme="dark"] .nb,html[data-theme="dark"] .bx,html[data-theme="dark"] .fbox,html[data-theme="dark"] table,html[data-theme="dark"] figure{background:#ededed}
+html[data-theme="dark"] svg [fill="#fff"],html[data-theme="dark"] svg [fill="#ffffff"]{fill:#ededed}
+html[data-theme="dark"] svg [fill="#f2f2f2"]{fill:#e0e0e0}

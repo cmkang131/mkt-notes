@@ -5,9 +5,7 @@
    ============================================================ */
 :root{
   --ink:#1a1a1a; --gray:#666; --rule:#1a1a1a;
-  --blue:#2456c4; --blue-bg:#eef3fd; --blue-bd:#c9d8f6; --blue-ink:#1d4bb5;
-  --red:#b03a32;  --red-bg:#fdf0ee;  --red-bd:#efc9c4;  --red-ink:#a33227;
-  --green:#2e7d4f;--green-bg:#eef7f0;--green-bd:#c9e5d2;--green-ink:#256e44;
+  --red:#9e2b25;  --red-bg:#fdf0ee;  --red-bd:#efc9c4;  --red-ink:#9e2b25;
   --amber:#8a6d00;--amber-bg:#fffbe6;--amber-bd:#eee0a0;
   --hl:#fff1a8;
   --card-bd:#e6e3da; --card-bg:#fbfaf7;
@@ -22,7 +20,7 @@ svg{max-width:100%}
 .phead-c{color:var(--ink);font-weight:700;font-size:13.5px;text-align:center}
 .phead-r{font-size:12.5px;white-space:nowrap}
 a.to-home{color:var(--ink);text-decoration:none;cursor:pointer;border-bottom:1px solid #999;white-space:nowrap;font-size:13px}
-a.to-home:hover{color:var(--blue);border-color:var(--blue)}
+a.to-home:hover{color:var(--ink);border-color:var(--ink)}
 h1.pagetitle{font-size:26px;font-weight:700;margin:18px 0 4px;line-height:1.35}
 .psub{font-size:14.5px;color:#555;margin-bottom:6px}
 .body{font-size:16.5px;line-height:1.7}
@@ -30,7 +28,7 @@ h1.pagetitle{font-size:26px;font-weight:700;margin:18px 0 4px;line-height:1.35}
 
 /* ---------- 본문 노트 ---------- */
 .notes h2{font-size:19px;font-weight:700;color:var(--ink);margin:30px 0 10px;padding-bottom:5px;border-bottom:1.5px solid var(--rule)}
-.notes h2 .h2no{color:var(--blue);margin-right:.35em}
+.notes h2 .h2no{color:var(--ink);margin-right:.35em}
 .notes h3{font-size:16.5px;font-weight:700;color:var(--ink);margin:20px 0 6px}
 .notes h4{font-size:15.5px;font-weight:700;color:#333;margin:14px 0 4px}
 .notes p{margin:.3em 0}
@@ -44,7 +42,7 @@ h1.pagetitle{font-size:26px;font-weight:700;margin:18px 0 4px;line-height:1.35}
 .notes ol{margin:.25em 0;padding-left:1.7em}
 .notes ol li{margin:.2em 0;line-height:1.65}
 .notes ol ol{list-style:lower-alpha}
-.notes code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:#f3f3f3;padding:.05em .35em;border-radius:3px}
+.notes code{font-family:ui-monospace,SFMono-Regular,Menlo,'Noto Sans KR',monospace;font-size:.88em;background:#f3f3f3;padding:.05em .35em;border-radius:3px}
 .notes table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14.5px}
 .notes td,.notes th{border:1px solid #ccc;padding:6px 10px;vertical-align:top;line-height:1.55;text-align:left}
 .notes thead th, .notes tr:first-child th{background:#f6f6f6;font-weight:700}
@@ -54,9 +52,7 @@ h1.pagetitle{font-size:26px;font-weight:700;margin:18px 0 4px;line-height:1.35}
 .body b{color:var(--ink)}
 
 /* 강조 표기 */
-.k-blue{color:var(--blue);font-weight:700}
 .k-red{color:var(--red);font-weight:700}
-.k-green{color:var(--green);font-weight:700}
 .hl{background:var(--hl);padding:.02em .18em;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
 /* ---------- 박스: 개념 문장과 공식만 검정 박스 ---------- */
@@ -89,14 +85,12 @@ h1.pagetitle{font-size:26px;font-weight:700;margin:18px 0 4px;line-height:1.35}
 
 /* 숫자 통계 카드 */
 .stats{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
-.stat{flex:1;min-width:120px;border:1px solid var(--blue-bd);background:var(--blue-bg);border-radius:10px;padding:10px 14px;text-align:center;box-shadow:var(--shadow)}
-.stat .v{font-size:23px;font-weight:700;color:var(--blue-ink);line-height:1.25}
+.stat{flex:1;min-width:120px;border:1px solid #d9d9d9;background:#f2f2f2;border-radius:10px;padding:10px 14px;text-align:center;box-shadow:var(--shadow)}
+.stat .v{font-size:23px;font-weight:700;color:var(--ink);line-height:1.25}
 .stat .v small{font-size:14px;font-weight:700}
 .stat .l{font-size:12.5px;color:#4a5a7a;margin-top:2px}
 .stat.warn2{background:var(--red-bg);border-color:var(--red-bd)}
 .stat.warn2 .v{color:var(--red-ink)} .stat.warn2 .l{color:#7a4a44}
-.stat.green2{background:var(--green-bg);border-color:var(--green-bd)}
-.stat.green2 .v{color:var(--green-ink)} .stat.green2 .l{color:#3f6b4f}
 
 /* 그림 */
 figure{margin:14px 0;text-align:center}
@@ -112,24 +106,24 @@ figcaption{font-size:13px;color:#666;margin-top:6px}
 /* 일반 details (토글) */
 .notes details.tg{border:1px solid var(--card-bd);border-radius:10px;padding:10px 16px;margin:10px 0;background:#fff;box-shadow:var(--shadow)}
 .notes details.tg summary{font-weight:700;font-size:16px;cursor:pointer;list-style:none;position:relative;padding-left:1.2em}
-.notes details.tg summary::before{content:"▸";position:absolute;left:0;color:var(--blue);transition:transform .12s}
+.notes details.tg summary::before{content:"▸";position:absolute;left:0;color:var(--ink);transition:transform .12s}
 .notes details.tg[open] summary::before{transform:rotate(90deg)}
 .notes details.tg > *:not(summary){margin-top:8px}
 
 /* ---------- 엑셀 목업 ---------- */
 .xl{border:1px solid #d8d5cc;border-radius:10px;background:#fff;margin:12px 0;box-shadow:var(--shadow);overflow:hidden}
 .xl-bar{display:flex;align-items:center;gap:8px;background:linear-gradient(#f6f6f3,#eeece6);border-bottom:1px solid #ddd9cf;padding:6px 12px;font-size:12.5px;color:#666}
-.xl-bar .cell-name{font-family:ui-monospace,Menlo,monospace;background:#fff;border:1px solid #d8d5cc;border-radius:4px;padding:1px 8px;font-size:12px;color:#333}
+.xl-bar .cell-name{font-family:ui-monospace,Menlo,'Noto Sans KR',monospace;background:#fff;border:1px solid #d8d5cc;border-radius:4px;padding:1px 8px;font-size:12px;color:#333}
 .xl-bar .fx{font-weight:700;font-style:italic;color:#888}
-.xl-fx{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;padding:7px 12px;border-bottom:1px solid #eee;border-bottom:1px solid #eeeee8;color:#1a1a1a;background:#fff;overflow-x:auto;white-space:nowrap}
+.xl-fx{font-family:ui-monospace,Menlo,'Noto Sans KR',monospace;font-size:13.5px;padding:7px 12px;border-bottom:1px solid #eee;border-bottom:1px solid #eeeee8;color:#1a1a1a;background:#fff;overflow-x:auto;white-space:nowrap}
 .xl-fx .sel{background:#fff2c2;border-radius:2px;padding:0 2px}
-.xl table{border-collapse:collapse;width:100%;font-size:13.5px;font-family:ui-monospace,Menlo,monospace}
+.xl table{border-collapse:collapse;width:100%;font-size:13.5px;font-family:ui-monospace,Menlo,'Noto Sans KR',monospace}
 .xl th,.xl td{border:1px solid #e4e2db;padding:4px 9px;text-align:right;white-space:nowrap;font-weight:400}
 .xl th{background:#f6f6f3;color:#666;font-size:12px;text-align:center;font-weight:400}
 .xl td.l,.xl th.l{text-align:left}
 .xl td.c{text-align:center}
 .xl td.selcell{background:#fff2c2;font-weight:700}
-.xl td.hlcell{background:#eaf1fd;font-weight:700;color:var(--blue-ink)}
+.xl td.hlcell{background:#f2f2f2;font-weight:700;color:var(--ink)}
 .xl td.warn{background:#fdeceb;color:var(--red-ink);font-weight:700}
 .xl-cap{font-size:13px;color:#666;padding:8px 12px;border-top:1px solid #eeeee8;background:#fbfaf7;text-align:left}
 .xl .rowhdr{background:#f6f6f3;color:#666;text-align:center;font-size:12px}
@@ -140,15 +134,15 @@ figcaption{font-size:13px;color:#666;margin-top:6px}
 .dlg-b{padding:10px 14px;font-size:13.5px}
 .dlg-row{display:flex;align-items:baseline;gap:8px;margin:7px 0}
 .dlg-row .k{flex:none;width:96px;color:#444;text-align:right;font-size:13px}
-.dlg-row .v{flex:1;border:1px solid #c9c6bc;border-radius:4px;background:#fff;padding:3px 8px;font-family:ui-monospace,Menlo,monospace;font-size:13px}
+.dlg-row .v{flex:1;border:1px solid #c9c6bc;border-radius:4px;background:#fff;padding:3px 8px;font-family:ui-monospace,Menlo,'Noto Sans KR',monospace;font-size:13px}
 .dlg-row .v.sel{background:#fff2c2;font-weight:700}
 .dlg-row .opt{display:flex;gap:14px;font-size:13px}
 .dlg-row .opt .on{font-weight:700}
-.dlg-row .opt .on::before{content:"●";color:var(--blue);margin-right:4px;font-size:10px}
+.dlg-row .opt .on::before{content:"●";color:var(--ink);margin-right:4px;font-size:10px}
 .dlg-row .opt .off::before{content:"○";color:#999;margin-right:4px;font-size:10px}
 .dlg-foot{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;border-top:1px solid #eee;background:#fbfaf7}
 .dlg-btn{border:1px solid #b9b6ac;border-radius:5px;background:linear-gradient(#fff,#f0eee8);padding:3px 16px;font-size:13px}
-.dlg-btn.primary{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700}
+.dlg-btn.primary{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:700}
 .dlg-note{font-size:12.5px;color:#777;margin-top:6px}
 
 /* ---------- 문제(퀴즈) + 힌트/정답 UI ---------- */
@@ -198,3 +192,40 @@ ol.steps .why{color:#555;font-size:14.5px}
   .paper{max-width:none;margin:0;padding:10px 20px}
   .pd .pd-body{display:block}
 }
+/* ============ v3 이식 (2026-10-22): 본문 가독성 + 팔레트 ============ */
+/* 팔레트: 파랑/초록 제거 → 잉크/회색, 빨강 #9e2b25 통일, hl 노랑만 유지 */
+.lt{color:var(--ink);font-weight:700}
+/* 본문 리듬: 한 불릿 한 생각이 숨쉬도록 여백/행간 확대 */
+.body{line-height:1.78}
+.notes p{margin:.5em 0}
+.notes ul li{margin:.55em 0;line-height:1.78}
+.notes ul ul li{margin:.35em 0}
+/* 표 셀 여백 */
+.tbl th,.tbl td,.xl th,.xl td{padding:8px 12px}
+.notes dl.def{margin:14px 0;border-top:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule)}
+.notes dl.def>div{display:grid;grid-template-columns:8.5em 1fr;gap:0 18px;padding:9px 2px;border-top:1px solid #e2e2e2}
+.notes dl.def>div:first-child{border-top:none}
+.notes dl.def dt{font-weight:700;font-size:15px;line-height:1.7}
+.notes dl.def dd{margin:0;line-height:1.75}
+.notes p.lead{font-weight:700;font-size:16.5px;line-height:1.7;margin:.5em 0 .9em;padding-left:12px;border-left:3px solid var(--ink)}
+.notes ol.steps{list-style:none;counter-reset:st;padding-left:0;margin:.8em 0}
+.notes ol.steps li{counter-increment:st;position:relative;padding-left:2.4em;margin:.7em 0;line-height:1.75}
+.notes ol.steps li::before{content:counter(st);position:absolute;left:0;top:.2em;width:1.6em;height:1.6em;border:1.3px solid var(--ink);border-radius:50%;text-align:center;font-size:12.5px;font-weight:700;line-height:1.5em}
+@media(max-width:560px){.notes dl.def>div{grid-template-columns:1fr}.notes dl.def dt{margin-bottom:0}}
+
+.notes dl.def.sum>div{grid-template-columns:11em 1fr;padding:7px 2px}
+.notes dl.def.sum dt{font-weight:700;font-size:14.5px}
+.notes dl.def.sum dd{font-size:15px;line-height:1.7}
+.notes .fbox{margin:10px 0}
+@media(max-width:560px){.notes dl.def.sum>div{grid-template-columns:1fr}}
+/* v3.2 dark mode: invert + hue-rotate keeps accent red as red; backgrounds set so result is #121212 */
+html[data-theme="dark"]{filter:invert(1) hue-rotate(180deg);background:#ededed}
+html[data-theme="dark"] body,html[data-theme="dark"] .paper{background:#ededed}
+html[data-theme="dark"] svg,html[data-theme="dark"] figure{background:transparent}
+.theme-toggle{position:fixed;top:10px;right:12px;z-index:50;font:500 12px 'Noto Sans KR',sans-serif;color:#1a1a1a;background:#fff;border:1px solid #1a1a1a;border-radius:4px;padding:3px 9px;cursor:pointer}
+html[data-theme="dark"] .theme-toggle{background:#fff}
+@media print{html[data-theme="dark"]{filter:none;background:#fff}html[data-theme="dark"] body,html[data-theme="dark"] .paper{background:#fff}.theme-toggle{display:none}}
+
+html[data-theme="dark"] .nb,html[data-theme="dark"] .bx,html[data-theme="dark"] .fbox,html[data-theme="dark"] table,html[data-theme="dark"] figure{background:#ededed}
+html[data-theme="dark"] svg [fill="#fff"],html[data-theme="dark"] svg [fill="#ffffff"]{fill:#ededed}
+html[data-theme="dark"] svg [fill="#f2f2f2"]{fill:#e0e0e0}
