@@ -125,7 +125,7 @@ figcaption{font-size:13px;color:#666;margin-top:8px}
 .notes details.tg > *:not(summary){margin-top:10px}
 
 /* ---------- 엑셀 목업 ---------- */
-.xl{border:1px solid #d8d5cc;border-radius:10px;background:#fff;margin:14px 0;box-shadow:var(--shadow);overflow:hidden}
+.xl{border:1px solid #d8d5cc;border-radius:10px;background:#fff;margin:14px 0;box-shadow:var(--shadow);overflow-x:auto}
 .xl-bar{display:flex;align-items:center;gap:8px;background:linear-gradient(#f6f6f3,#eeece6);border-bottom:1px solid #ddd9cf;padding:6px 12px;font-size:12.5px;color:#666}
 .xl-bar .cell-name{font-family:ui-monospace,Menlo,'Noto Sans KR',monospace;background:#fff;border:1px solid #d8d5cc;border-radius:4px;padding:1px 8px;font-size:12px;color:#333}
 .xl-bar .fx{font-weight:700;font-style:italic;color:#888}
@@ -291,3 +291,16 @@ html[data-theme="dark"] .theme-toggle{background:#fff}
 html[data-theme="dark"] .nb,html[data-theme="dark"] .bx,html[data-theme="dark"] .fbox,html[data-theme="dark"] table,html[data-theme="dark"] figure{background:#ededed}
 html[data-theme="dark"] svg [fill="#fff"],html[data-theme="dark"] svg [fill="#ffffff"]{fill:#ededed}
 html[data-theme="dark"] svg [fill="#f2f2f2"]{fill:#e0e0e0}
+
+/* ===== v4 template rev2 + st-t 간격 (mkt problems) ===== */
+a.tap{display:block;position:relative;border:1px solid #d9d9d9;border-radius:6px;padding:10px 44px 10px 16px;margin:8px 0;color:var(--ink);text-decoration:none;cursor:pointer;background:#fff;transition:background .12s,border-color .12s,transform .12s}
+a.tap::after{content:"\2192";position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gray)}
+a.tap.na::after{display:none}
+a.tap:hover{background:#f2f2f2;border-color:#555}
+a.tap:active{transform:translateY(1px)}
+a.tap:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tapc{display:inline-block;border:1px solid #dcdcdc;border-radius:4px;padding:1px 6px;color:inherit;text-decoration:none;cursor:pointer;transition:background .12s,border-color .12s}
+.tapc:hover{background:#f2f2f2;border-color:#555}
+.to-root{color:var(--gray);text-decoration:none;border-bottom:1px dashed #b9bfc9}
+.to-root:hover{color:var(--ink)}
+ol.steps .st-t{margin-right:.4em}

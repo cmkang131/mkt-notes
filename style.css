@@ -40,3 +40,16 @@ html[data-theme="dark"] .theme-toggle{background:#fff}
 html[data-theme="dark"] .nb,html[data-theme="dark"] .bx,html[data-theme="dark"] .fbox,html[data-theme="dark"] table,html[data-theme="dark"] figure{background:#ededed}
 html[data-theme="dark"] svg [fill="#fff"],html[data-theme="dark"] svg [fill="#ffffff"]{fill:#ededed}
 html[data-theme="dark"] svg [fill="#f2f2f2"]{fill:#e0e0e0}
+
+/* link-state color fix: never UA blue/purple (2026-10-22) */
+a,a:link,a:visited,a:active{color:var(--ink,#1a1a1a)}
+a:hover{color:var(--ink,#1a1a1a)}
+
+/* v4 tap/to-root (mkt index) */
+a.tap{display:block;position:relative;border:1px solid #d9d9d9;border-radius:6px;padding:10px 44px 10px 16px;margin:8px 0;color:var(--ink);text-decoration:none;cursor:pointer;background:#fff;transition:background .12s,border-color .12s,transform .12s}
+a.tap::after{content:"\2192";position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gray)}
+a.tap.na::after{display:none}
+a.tap:hover{background:#f2f2f2;border-color:#555}
+a.tap:active{transform:translateY(1px)}
+.to-root{color:var(--gray);text-decoration:none;border-bottom:1px dashed #b9bfc9}
+.to-root:hover{color:var(--ink)}
