@@ -19,13 +19,13 @@
 </div>
 
 <h1 class="pagetitle">묶음 가격 스프레드시트 설계 (Verizon)</h1>
-<p class="psub">5강 가격 묶음 — 7개 상품 가격을 해 찾기로</p>
+<p class="psub">5강 가격 묶음 · 7개 상품 가격을 해 찾기로</p>
 <div class="body notes">
 <div class="prob">
   <div class="prob-head">
     <span class="prob-no">문제 8</span><span class="prob-src">수업 예제 (기출 아님)</span>
     <div class="prob-q">
-      <p>고객 77명에게 인터넷·TV·휴대폰의 월 지불의사(WTP)가 있고, 판매 상품은 7개다 (1 인터넷, 2 TV, 3 휴대폰, 4 인터넷+TV, 5 인터넷+휴대폰, 6 TV+휴대폰, 7 셋 다). 각 고객은 <b>잉여(WTP − 가격)가 가장 큰 상품</b>을 사고, 전부 음수면 사지 않는다. 총매출을 최대로 하는 가격을 해 찾기로 구하는 스프레드시트를 설계하라 (수식과 해 찾기 설정을 쓸 것).</p>
+      <p>고객 77명에게 인터넷·TV·휴대폰의 월 지불의사(WTP)가 있고 판매 상품은 7개다 (1 인터넷, 2 TV, 3 휴대폰, 4 인터넷+TV, 5 인터넷+휴대폰, 6 TV+휴대폰, 7 셋 다). 각 고객은 <b>잉여(WTP − 가격)가 가장 큰 상품</b>을 사고, 전부 음수면 사지 않는다. 총매출을 최대로 하는 가격을 해 찾기로 구하는 스프레드시트를 설계하라 (수식과 해 찾기 설정을 쓸 것).</p>
     </div>
   </div>
   <div class="prob-body">
@@ -37,8 +37,8 @@
     <details class="pd ans"><summary><span class="tgl">정답</span></summary>
       <div class="pd-body">
         <p class="ans-ref">개념은 위 힌트 참고.</p>
-        <ol class="steps"><li><span class="st-t">잉여 열</span>상품별 잉여 = 가치 − 가격. 예: 인터넷+TV 잉여 칸은 <span class="lt">=(A6+B6)-G$3</span>. 이걸 77명 끝까지 복사한다 (오른쪽 아래 더블클릭). <span class="why">교수님이 수업에서 범한 실수: 77명 끝까지 안 채워서 매출이 달라짐.</span></li><li><span class="st-t">구매 상품</span>최대 잉여 K6 <span class="lt">=MAX(D6:J6)</span>, 구매 번호 L6 <span class="lt">=IF(K6&gt;0, MATCH(K6, D6:J6, 0), 0)</span>. <span class="why">잉여가 0일 때 살지 말지는 편한 대로 정해도 된다. 동점이면 엑셀이 아무거나 골라도 총매출은 같다.</span></li><li><span class="st-t">매출과 목표</span>손님 매출 M6 <span class="lt">=IF(L6=0, 0, HLOOKUP(L6, $D$2:$J$3, 2, FALSE))</span>, 총매출 <span class="lt">=SUM(M6:M82)</span> = 해 찾기 목표 셀. 상품별 구매 인원은 =COUNTIF($L$6:$L$82, 번호). <span class="why">HLOOKUP은 번호 행에서 찾아 가격 행을 가져온다.</span></li><li><span class="st-t">해 찾기 설정</span>① 목표 설정 셀 = 총매출, 최대값 ② 변수 셀 = 7개 가격 칸 (D3:J3 드래그) ③ 제약: 가격 ≤ 100, ≥ 0 추가 ④ "제한되지 않는 변수를 음이 아닌 수로" 체크 ⑤ 해법 = Evolutionary ⑥ 해 찾기. <span class="why">Evolutionary는 무작위라 사람마다 가격이 조금씩 다르다 — 총매출이 거의 같으면 정상. 오래 걸리면 기다린다.</span></li></ol>
-        <div class="ans-final"><div class="val"><span class="hl">잉여 열 → 최대 잉여 → 구매 번호 → 매출 → 총매출을 목표로, 7개 가격을 변수 셀로 Evolutionary</span> — 설계가 끝나면 해 찾기가 가격을 결정한다</div></div>
+        <ol class="steps"><li><span class="st-t">잉여 열</span>상품별 잉여 = 가치 − 가격. 예: 인터넷+TV 잉여 칸은 <span class="lt">=(A6+B6)-G$3</span>. 이걸 77명 끝까지 복사한다 (오른쪽 아래 더블클릭). <span class="why">교수님이 수업에서 범한 실수: 77명 끝까지 안 채워서 매출이 달라짐.</span></li><li><span class="st-t">구매 상품</span>최대 잉여 K6 <span class="lt">=MAX(D6:J6)</span>, 구매 번호 L6 <span class="lt">=IF(K6&gt;0, MATCH(K6, D6:J6, 0), 0)</span>. <span class="why">잉여가 0일 때 살지 말지는 편한 대로 정해도 된다. 동점이면 엑셀이 아무거나 골라도 총매출은 같다.</span></li><li><span class="st-t">매출과 목표</span>손님 매출 M6 <span class="lt">=IF(L6=0, 0, HLOOKUP(L6, $D$2:$J$3, 2, FALSE))</span>, 총매출 <span class="lt">=SUM(M6:M82)</span> = 해 찾기 목표 셀. 상품별 구매 인원은 =COUNTIF($L$6:$L$82, 번호). <span class="why">HLOOKUP은 번호 행에서 찾아 가격 행을 가져온다.</span></li><li><span class="st-t">해 찾기 설정</span>① 목표 설정 셀 = 총매출, 최대값 ② 변수 셀 = 7개 가격 칸 (D3:J3 드래그) ③ 제약: 가격 ≤ 100, ≥ 0 추가 ④ "제한되지 않는 변수를 음이 아닌 수로" 체크 ⑤ 해법 = Evolutionary ⑥ 해 찾기. <span class="why">Evolutionary는 무작위라 사람마다 가격이 조금씩 다르다. 총매출이 거의 같으면 정상. 오래 걸리면 기다린다.</span></li></ol>
+        <div class="ans-final"><div class="val"><span class="hl">잉여 열 → 최대 잉여 → 구매 번호 → 매출 → 총매출을 목표로, 7개 가격을 변수 셀로 Evolutionary</span>. 설계가 끝나면 해 찾기가 가격을 결정한다</div></div>
       </div>
     </details>
   </div>

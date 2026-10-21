@@ -51,14 +51,14 @@
   <div class="stat"><div class="v">±2σ <small>95%</small></div><div class="l">45.7 ~ 126.8개</div></div>
   <div class="stat"><div class="v">±3σ <small>99.7%</small></div><div class="l">25.4 ~ 147.1개</div></div>
 </div>
-<p class="note">케이크 기준 (평균 86.28, 표준편차 20.28). 교재는 하한을 45.3으로 적었지만 계산하면 45.7 — <b>산술은 인쇄물이 아니라 계산을 믿는다</b>. 케이크 45개 미만이나 127개 넘게 팔린 날은 따로 볼 만하다.</p>
+<p class="note">케이크 기준 (평균 86.28, 표준편차 20.28). 교재는 하한을 45.3으로 적었지만 계산하면 45.7. <b>산술은 인쇄물이 아니라 계산을 믿는다</b>. 케이크 45개 미만이나 127개 넘게 팔린 날은 따로 볼 만하다.</p>
 
 <h2><span class="h2no">2</span>경험 규칙을 COUNTIF로 확인하기</h2>
 <ol class="steps">
   <li><span class="st-t">하한·상한 계산</span><code>=H7-2*H10</code>, <code>=H7+2*H10</code> → 45.7, 126.8. <span class="why">H7 = 평균, H10 = 표준편차 셀.</span></li>
   <li><span class="st-t">아래쪽 이상값 세기</span><code>=COUNTIF(Cake,"&lt;"&amp;R15)</code> → 13일. <span class="why">비교 기호는 글자라 따옴표 안에, 셀 값은 &amp;로 붙인다. 따옴표 안에 R15를 쓰면 글자 자체를 찾는다.</span></li>
   <li><span class="st-t">위쪽 이상값 세기</span><code>=COUNTIF(Cake,"&gt;"&amp;R16)</code> → 35일.</li>
-  <li><span class="st-t">안쪽 비율 확인</span>전체 <code>=COUNT(Cake)</code> = 1,095일 → 1,095 − 13 − 35 = 1,047일 = <span class="hl">95.62%</span> — 규칙의 95%와 거의 같다.</li>
+  <li><span class="st-t">안쪽 비율 확인</span>전체 <code>=COUNT(Cake)</code> = 1,095일 → 1,095 − 13 − 35 = 1,047일 = <span class="hl">95.62%</span>. 규칙의 95%와 거의 같다.</li>
 </ol>
 <div class="stats">
   <div class="stat"><div class="v">95.62%</div><div class="l">±2σ 안쪽 날짜 비율</div></div>
@@ -69,9 +69,9 @@
 <p>요일별 표 (Q32:Q38에 Monday…Sunday)를 채우는 네 식:</p>
 <ul>
   <li>며칠: <code>=COUNTIF($E$12:$E$1106, Q32)</code></li>
-  <li>총판매: <code>=SUMIF($E$12:$E$1106, Q32, Cake)</code> — 인수 순서 = 조건 범위, 조건, 더할 범위</li>
+  <li>총판매: <code>=SUMIF($E$12:$E$1106, Q32, Cake)</code> (인수 순서: 조건 범위, 조건, 더할 범위)</li>
   <li>평균: 총판매 ÷ 일수, 또는 <code>=AVERAGEIF($E$12:$E$1106, Q32, Cake)</code>로 한 번에</li>
-  <li>순위: <code>=RANK(T32, $T$32:$T$38, 0)</code> — 끝이 0이면 큰 값이 1등, 범위는 F4($)로 고정</li>
+  <li>순위: <code>=RANK(T32, $T$32:$T$38, 0)</code> (끝이 0이면 큰 값이 1등, 범위는 F4($)로 고정)</li>
 </ul>
 <div class="tblwrap"><table>
 <thead><tr><th>요일</th><th>하루 평균 케이크</th><th>순위</th></tr></thead>
@@ -95,13 +95,13 @@
 
 <h2><span class="h2no">4</span>인수 순서 함정 (가장 흔한 실수)</h2>
 <div class="nb">
-  <p class="bx-h"><b>시험 함정 <span class="en">SUMIF vs SUMIFS — 요약 범위의 위치가 뒤집힌다</span></b></p>
+  <p class="bx-h"><b>시험 함정 <span class="en">SUMIF vs SUMIFS: 요약 범위의 위치가 뒤집힌다</span></b></p>
   <div class="tblwrap"><table>
     <thead><tr><th>단수형</th><th>복수형</th></tr></thead>
     <tbody>
-      <tr><td class="l"><code>=SUMIF(조건 범위, 조건, 합계 범위)</code> — 합계 범위가 <b>셋째</b></td><td class="l"><code>=SUMIFS(합계 범위, 조건 범위1, 조건1, …)</code> — 합계 범위가 <b>첫째</b></td></tr>
-      <tr><td class="l"><code>=AVERAGEIF(범위, 조건, 평균 범위)</code> — 셋째</td><td class="l"><code>=AVERAGEIFS(평균 범위, 조건 범위1, 조건1, …)</code> — 첫째</td></tr>
-      <tr><td class="l" colspan="2"><b>COUNTIF·COUNTIFS는 예외</b> — 요약할 열이 없어서 범위·조건 쌍만 쓴다</td></tr>
+      <tr><td class="l"><code>=SUMIF(조건 범위, 조건, 합계 범위)</code>: 합계 범위가 <b>셋째</b></td><td class="l"><code>=SUMIFS(합계 범위, 조건 범위1, 조건1, …)</code>: 합계 범위가 <b>첫째</b></td></tr>
+      <tr><td class="l"><code>=AVERAGEIF(범위, 조건, 평균 범위)</code>: 셋째</td><td class="l"><code>=AVERAGEIFS(평균 범위, 조건 범위1, 조건1, …)</code>: 첫째</td></tr>
+      <tr><td class="l" colspan="2"><b>COUNTIF·COUNTIFS는 예외</b>: 요약할 열이 없어서 범위·조건 쌍만 쓴다</td></tr>
     </tbody>
   </table></div>
   <ul>
@@ -112,23 +112,23 @@
 
 <h2><span class="h2no">5</span>조회 함수: VLOOKUP · HLOOKUP · MATCH · INDEX</h2>
 <div class="bx bx-def">
-  <p class="bx-h"><b>개념 <span class="en">VLOOKUP — 세로 표에서 찾기</span></b></p>
-  <p><code>=VLOOKUP(찾을 값, 표, 몇 번째 열, 정확히?)</code> — 표의 <b>첫 열</b>에서 찾고, 표 왼쪽부터 센 열의 값을 돌려준다. 교수님: "이 수업에서 제일 중요한 함수는 VLOOKUP, HLOOKUP".</p>
+  <p class="bx-h"><b>개념 <span class="en">VLOOKUP: 세로 표에서 찾기</span></b></p>
+  <p><code>=VLOOKUP(찾을 값, 표, 몇 번째 열, 정확히?)</code>: 표의 <b>첫 열</b>에서 찾고, 표 왼쪽부터 센 열의 값을 돌려준다. 교수님: "이 수업에서 제일 중요한 함수는 VLOOKUP, HLOOKUP".</p>
   <ul>
-    <li>예: <code>=VLOOKUP(F12, $A$13:$B$19, 2, FALSE)</code> — WEEKDAY로 나온 요일 번호를 "1~7, 요일 이름" 표에서 찾아 2번째 열 → 2면 Tuesday.</li>
+    <li>예: <code>=VLOOKUP(F12, $A$13:$B$19, 2, FALSE)</code>: WEEKDAY로 나온 요일 번호를 "1~7, 요일 이름" 표에서 찾아 2번째 열 → 2면 Tuesday.</li>
     <li>열 번호는 <span class="k-red">시트가 아니라 표 왼쪽부터</span> 센다.</li>
   </ul>
 </div>
 <div class="bx bx-def">
-  <p class="bx-h"><b>개념 <span class="en">HLOOKUP — 가로 표에서 찾기</span></b></p>
-  <p>같은 함수인데 <b>첫 행</b>에서 찾고 아래 몇 번째 행 값을 준다. 표가 진짜 가로로 놓일 때만 사용 (예: 5강 Verizon 가격표 — 윗행 상품 번호 1~7, 아랫행 가격). 표 범위를 $로 안 묶으면 77명 아래로 끌 때 표가 같이 내려가서 둘째 줄부터 틀린다.</p>
+  <p class="bx-h"><b>개념 <span class="en">HLOOKUP: 가로 표에서 찾기</span></b></p>
+  <p>같은 함수인데 <b>첫 행</b>에서 찾고 아래 몇 번째 행 값을 준다. 표가 진짜 가로로 놓일 때만 사용 (예: 5강 Verizon 가격표. 윗행 상품 번호 1~7, 아랫행 가격). 표 범위를 $로 안 묶으면 77명 아래로 끌 때 표가 같이 내려가서 둘째 줄부터 틀린다.</p>
 </div>
 <div class="nb">
   <p class="bx-h"><b>시험 함정 <span class="en">넷째 인수: FALSE(0) vs TRUE(1)</span></b></p>
   <div class="tblwrap"><table>
-    <thead><tr><th>FALSE / 0 — 정확히 일치</th><th>TRUE / 1 — 근사 (기본값!)</th></tr></thead>
+    <thead><tr><th>FALSE / 0 = 정확히 일치</th><th>TRUE / 1 = 근사(기본값!)</th></tr></thead>
     <tbody>
-      <tr><td class="l">없으면 #N/A. 정렬 필요 없음. <b>거의 항상 이것</b> — 기본값이 아니라 직접 써야 한다.</td><td class="l">찾는 값 이하 중 가장 큰 항목. 첫 열이 오름차순이 아니면 <b>조용히 틀림</b>. 세율·수량 할인·학점 구간표용.</td></tr>
+      <tr><td class="l">없으면 #N/A. 정렬 필요 없음. <b>거의 항상 이것</b>. 기본값이 아니라 직접 써야 한다.</td><td class="l">찾는 값 이하 중 가장 큰 항목. 첫 열이 오름차순이 아니면 <b>조용히 틀림</b>. 세율·수량 할인·학점 구간표용.</td></tr>
     </tbody>
   </table></div>
   <p>흔한 오류 넷: ① #N/A (값이 없거나 공백, 숫자가 텍스트) ② 엉뚱한 열 (열 번호를 시트 기준으로 셈) ③ 복사하면 틀어짐 (표를 $로 안 묶음) ④ 조용히 틀린 값 (근사 일치 + 정렬 안 된 표).</p>
@@ -145,11 +145,11 @@
 <div class="nb">
   
   <ul>
-    <li>비교 기호 + 셀 값: <code>"&lt;"&amp;R15</code> — 따옴표와 &amp; 조합.</li>
+    <li>비교 기호 + 셀 값: <code>"&lt;"&amp;R15</code>: 따옴표와 &amp; 조합.</li>
     <li>SUMIF(셋째) vs SUMIFS(첫째) 인수 순서.</li>
     <li>VLOOKUP 넷째 인수는 직접 FALSE로. MATCH 셋째 인수는 0으로. 생략 = 근사 = 조용히 틀림.</li>
-    <li>표 범위는 F4로 고정 ($A$13:$B$19) — 아래로 끌 때 밀리지 않게.</li>
-    <li>이름 붙인 범위는 끌어도 안 움직인다 — <span class="k-red">그래서 <code>=MODE(Cake)</code>를 오른쪽으로 끌면 다른 제품 칸도 계속 Cake</span> (수업에서 실제로 나온 실수). 제품별로 옆으로 끌 땐 H12:H1106 같은 일반 범위로.</li>
+    <li>표 범위는 F4로 고정 ($A$13:$B$19). 아래로 끌 때 밀리지 않게.</li>
+    <li>이름 붙인 범위는 끌어도 안 움직인다. <span class="k-red">그래서 <code>=MODE(Cake)</code>를 오른쪽으로 끌면 다른 제품 칸도 계속 Cake</span> (수업에서 실제로 나온 실수). 제품별로 옆으로 끌 땐 H12:H1106 같은 일반 범위로.</li>
   </ul>
 </div>
 
