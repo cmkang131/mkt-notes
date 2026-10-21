@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture 5 · 가격 책정 II — 데이터와 경제학 마케팅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="study-note.css">
+</head>
+<body>
+<article class="paper">
+<div class="phead">
+  <a class="pback" href="index.html">&larr; 목차</a>
+  <span class="pbrand">데이터와 경제학 마케팅</span>
+  <span class="pmeta">CMEF499D &middot; 2026 가을</span>
+</div>
+<h1 class="pagetitle">5강 · 가격 묶음 (Bundling)</h1>
+<p class="psub">소비자잉여 · 순수/혼합 묶음 · 크기별 가격 · Verizon 7상품 모형 · Evolutionary 해 찾기와 벌점</p>
+<div class="body notes">
+
+<h2><span class="h2no">1</span>핵심 개념</h2>
+<div class="bx bx-def">
+  <div class="bx-t"><span class="dot"></span>개념 <span class="en">선형 가격 vs 비선형 가격</span></div>
+  <p>4강은 개당 같은 가격(선형), 5강은 총액이 개수에 비례하지 않는 가격(비선형). 그 대표가 <span class="k-blue">Bundling(묶음)</span> — 여러 상품을 한 가격에 팔아서, 따로라면 안 샀을 것까지 사게 한다.</p>
+</div>
+<div class="fbox"><div class="fx-name">소비자잉여 — 손님은 잉여가 가장 큰 상품을 사고, 다 음수면 안 산다</div><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="16.324ex" height="1.781ex" role="img" focusable="false" viewBox="0 -705 7215 787"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g><g data-mml-node="mi" transform="translate(760,0)"><path data-c="1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g><g data-mml-node="mo" transform="translate(1682.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2738.6,0)"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(3786.6,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(4490.6,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(5463.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(6464,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g></g></g></svg></div>
+<div class="bx bx-def">
+  <div class="bx-t"><span class="dot"></span>개념 <span class="en">단일 가격의 한계</span></div>
+  <p>한 가격만 매기면 WTP가 높은 사람의 잉여를 못 가져가고, 내리면 이미 살 사람에게도 싸게 팔게 된다. 예: 수업에서 물병 경매 — 가격을 내리며 손 드는 사람 수를 센 것이 바로 수요곡선.</p>
+</div>
+<div class="bx bx-def">
+  <div class="bx-t"><span class="dot"></span>개념 <span class="en">묶음의 세 가지 형태</span></div>
+  <ul>
+    <li><span class="k-blue">Pure Bundling(순수 묶음)</span>: 묶음으로만 판매.</li>
+    <li><span class="k-blue">Mixed Bundling(혼합 묶음)</span>: 단품과 묶음을 둘 다 판매 (Verizon 7개 상품).</li>
+    <li><span class="k-blue">크기별 가격</span>: 몇 개를 고르든 개수로 가격 (넷플릭스 요금제) — 단계 사이 가격 차이로 위 단계를 고르게 유도, 한계비용이 낮아서 가능.</li>
+  </ul>
+</div>
+<div class="bx bx-key">
+  <div class="bx-t"><span class="dot"></span>묶음이 효과 있는 조건</div>
+  <ul>
+    <li>사람마다 WTP가 <b>다르고</b></li>
+    <li>WTP가 <b>음의 상관</b> (한 사람은 A를, 다른 사람은 B를 높게 봄) — 양의 상관이면 묶어도 이득 없음</li>
+    <li>한계비용이 <b>낮을</b> 것</li>
+  </ul>
+  <p class="note">예: 세트 메뉴, 통신 결합, 데스크톱+모니터, MS Office (따로는 안 살 Access를 같이 사게).</p>
+</div>
+
+<h2><span class="h2no">2</span>예제 1 — 1회권 vs 5회권</h2>
+<p>놀이기구 손님 한 명의 WTP: 1회 $10, 2회차 $8, 3회차 $6… (회차별로 낮아짐). 단일 가격으로는 어떻게 해도 손님의 WTP 전체를 못 가져간다.</p>
+<figure><div class="figbox"><svg viewBox='0 0 480 260' xmlns='http://www.w3.org/2000/svg' role='img'><text x='240.0' y='15' font-size='12.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>손님 한 명에게서 버는 돈</text><line x1='34' y1='220.0' x2='470' y2='220.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='171.5' x2='470' y2='171.5' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='123.0' x2='470' y2='123.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='74.5' x2='470' y2='74.5' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='220' x2='470' y2='220' stroke='#b9b6ac' stroke-width='1.2'/><rect x='47.8' y='166.1' width='45.1' height='53.9' fill='#3b6fd4' rx='2'/><text x='70.33333333333334' y='161.11111111111111' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$10</text><text x='70.33333333333334' y='235' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>$10/회</text><rect x='120.5' y='133.8' width='45.1' height='86.2' fill='#3b6fd4' rx='2'/><text x='143.0' y='128.77777777777777' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$16</text><text x='143.0' y='235' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>$8/회</text><rect x='193.1' y='123.0' width='45.1' height='97.0' fill='#3b6fd4' rx='2'/><text x='215.66666666666669' y='118.0' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$18</text><text x='215.66666666666669' y='235' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>$6/회</text><rect x='265.8' y='133.8' width='45.1' height='86.2' fill='#3b6fd4' rx='2'/><text x='288.33333333333337' y='128.77777777777777' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$16</text><text x='288.33333333333337' y='235' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>$4/회</text><rect x='338.5' y='166.1' width='45.1' height='53.9' fill='#3b6fd4' rx='2'/><text x='361.0' y='161.11111111111111' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$10</text><text x='361.0' y='235' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>$2/회</text><rect x='411.1' y='58.3' width='45.1' height='161.7' fill='#1e3a8a' rx='2'/><text x='433.6666666666667' y='53.33333333333334' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$30</text><text x='433.6666666666667' y='235' font-size='10.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>5회권 $30</text></svg></div><figcaption>단일 가격 중 최고는 $6 (3번 타서 $18). 5회권 $30은 손님의 WTP 전체 $30을 가져가서 최고 단일 가격보다 67% 많다. (응용: 놀이공원 패스, 디즈니 파크 호퍼)</figcaption></figure>
+
+<h2><span class="h2no">3</span>예제 2 — 순수 묶음: WTP가 엇갈릴 때</h2>
+<p>손님1은 컴퓨터 $1,000·모니터 $500, 손님2는 컴퓨터 $500·모니터 $1,000 → 둘 다 묶음 가치는 $1,500. (교재 표 5-1, 원가 0 가정)</p>
+<figure><div class="figbox"><svg viewBox='0 0 430 270' xmlns='http://www.w3.org/2000/svg' role='img'><text x='215.0' y='14' font-size='12' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>손님별 지불의사 (WTP, $)</text><line x1='46' y1='230.0' x2='416' y2='230.0' stroke='#e8e6e0'/><text x='40' y='233.5' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>0</text><line x1='46' y1='190.8' x2='416' y2='190.8' stroke='#e8e6e0'/><text x='40' y='194.33333333333334' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>250</text><line x1='46' y1='151.7' x2='416' y2='151.7' stroke='#e8e6e0'/><text x='40' y='155.16666666666669' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>500</text><line x1='46' y1='112.5' x2='416' y2='112.5' stroke='#e8e6e0'/><text x='40' y='116.0' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>750</text><line x1='46' y1='73.3' x2='416' y2='73.3' stroke='#e8e6e0'/><text x='40' y='76.83333333333334' font-size='9.5' fill='#666' text-anchor='end' font-family='Noto Sans KR,sans-serif'>1,000</text><line x1='46' y1='230' x2='416' y2='230' stroke='#b9b6ac' stroke-width='1.2'/><rect x='82.5' y='73.3' width='52' height='156.7' fill='#1e3a8a' rx='2'/><text x='108.5' y='67.33333333333334' font-size='11' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$1,000</text><rect x='142.5' y='151.7' width='52' height='78.3' fill='#7aa2e8' rx='2'/><text x='168.5' y='145.66666666666669' font-size='11' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$500</text><text x='138.5' y='245' font-size='11' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>손님 1</text><rect x='267.5' y='151.7' width='52' height='78.3' fill='#1e3a8a' rx='2'/><text x='293.5' y='145.66666666666669' font-size='11' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$500</text><rect x='327.5' y='73.3' width='52' height='156.7' fill='#7aa2e8' rx='2'/><text x='353.5' y='67.33333333333334' font-size='11' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$1,000</text><text x='323.5' y='245' font-size='11' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>손님 2</text><rect x='296' y='15' width='12' height='12' fill='#1e3a8a' rx='2'/><text x='314' y='26' font-size='10' fill='#333' text-anchor='start' font-family='Noto Sans KR,sans-serif'>컴퓨터</text><rect x='296' y='33' width='12' height='12' fill='#7aa2e8' rx='2'/><text x='314' y='44' font-size='10' fill='#333' text-anchor='start' font-family='Noto Sans KR,sans-serif'>모니터</text></svg></div><figcaption>WTP가 정확히 엇갈린다 (음의 상관). 따로 $1,000씩 팔면 각자 하나만 사서 $2,000, 묶음 $1,500이면 둘 다 사서 $3,000.</figcaption></figure>
+
+<h2><span class="h2no">4</span>예제 3 — Erin과 Jake</h2>
+<p>WTP: Erin 애피타이저 $8·메인 $17, Jake 애피타이저 $2·메인 $25.</p>
+<figure><div class="figbox"><svg viewBox='0 0 480 250' xmlns='http://www.w3.org/2000/svg' role='img'><text x='240.0' y='15' font-size='12.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>가격 옵션별 매출 (두 손님 합계)</text><line x1='34' y1='210.0' x2='470' y2='210.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='164.0' x2='470' y2='164.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='118.0' x2='470' y2='118.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='72.0' x2='470' y2='72.0' stroke='#e8e6e0' stroke-width='1'/><line x1='34' y1='210' x2='470' y2='210' stroke='#b9b6ac' stroke-width='1.2'/><rect x='65.5' y='105.3' width='46.0' height='104.7' fill='#3b6fd4' rx='2'/><text x='88.5' y='100.3103448275862' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$33</text><text x='88.5' y='225' font-size='9.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>앱 $8 · 메인 $25</text><rect x='174.5' y='89.4' width='46.0' height='120.6' fill='#3b6fd4' rx='2'/><text x='197.5' y='84.44827586206897' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$38</text><text x='197.5' y='225' font-size='9.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>앱 $2 · 메인 $17</text><rect x='283.5' y='76.8' width='46.0' height='133.2' fill='#3b6fd4' rx='2'/><text x='306.5' y='71.75862068965517' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$42</text><text x='306.5' y='225' font-size='9.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>앱 $8 · 메인 $17</text><rect x='392.5' y='51.4' width='46.0' height='158.6' fill='#1e3a8a' rx='2'/><text x='415.5' y='46.37931034482759' font-size='11.5' fill='#1a1a1a' text-anchor='middle' font-weight='700' font-family='Noto Sans KR,sans-serif'>$50</text><text x='415.5' y='225' font-size='9.5' fill='#444' text-anchor='middle' font-family='Noto Sans KR,sans-serif'>묶음 $25</text></svg></div><figcaption>네 가격 옵션의 매출. ($8,$25)는 $33, ($2,$17)는 $38, ($8,$17)은 $42 — 묶음 $25는 둘 다 묶음을 사서 $50. 묶음은 WTP 차이를 이용해 $42를 $50으로 만든다.</figcaption></figure>
+<div class="bx bx-tip">
+  <div class="bx-t"><span class="dot"></span>해석</div>
+  <ul>
+    <li>"손님은 안 샀을 걸 사서 좋고, 가게는 더 번다."</li>
+    <li>학생 질문: 손님이 많으면 WTP를 어떻게 아나? → 시장 조사, 쿠폰·가격 변경으로 반응을 본다.</li>
+  </ul>
+</div>
+
+<h2><span class="h2no">5</span>Verizon 모형 — 77명 × 7개 상품</h2>
+<p>77명의 인터넷·TV·휴대폰 월 WTP(A:C열). 7개 상품: 1 인터넷, 2 TV, 3 휴대폰, 4 인터넷+TV, 5 인터넷+휴대폰, 6 TV+휴대폰, 7 셋 다.</p>
+<div class="flow"><span class="chip">고객별 WTP (A:C)</span><span class="arr">→</span><span class="chip">상품별 잉여 (D:J)</span><span class="arr">→</span><span class="chip">최대 잉여 (K)</span><span class="arr">→</span><span class="chip">산 상품 번호 (L)</span><span class="arr">→</span><span class="chip">매출 (M)</span><span class="arr">→</span><span class="chip">총매출 (M3)</span></div>
+<ol class="steps">
+  <li><span class="st-t">시작 가격 입력</span>D2:J2에 상품 번호 1~7, D3:J3에 가격 아무 값. <span class="why">가격이 결정변수 — 해 찾기가 바꾼다.</span></li>
+  <li><span class="st-t">고객별 잉여 계산</span>6행에 손님1의 상품별 잉여 = 가치 − 가격 (예: 인터넷+TV <code>=A6+B6-G$3</code>). <span class="why">G$3의 $는 가격 행을 고정해 아래로 복사해도 안 밀리게. (교재는 가격이 4행, 수업 파일은 3행)</span></li>
+  <li><span class="st-t">77명 끝까지 복사</span>6행만 만들고 D6:M6 선택 → 모서리 더블클릭으로 82행까지. <span class="why">교수님이 끝까지 안 채워서 틀린 적 있음 — "오른쪽 아래 더블클릭해서 끝까지 채웠는지 먼저 확인".</span></li>
+  <li><span class="st-t">최대 잉여</span>K열 <code>=MAX(D6:J6)</code>.</li>
+  <li><span class="st-t">산 상품 번호</span>L열 <code>=IF(K6&gt;0, MATCH(K6, D6:J6, 0), 0)</code>. <span class="why">잉여가 양수면 몇 번째 상품인지, 아니면 0 (안 삼). MATCH 마지막 0을 빼먹으면 비슷한 값을 골라버림 — 수업에서 학생들 매출이 달랐던 이유.</span></li>
+  <li><span class="st-t">매출</span>M열 <code>=IF(L6=0, 0, HLOOKUP(L6, $D$2:$J$3, 2, FALSE))</code>. <span class="why">2행 번호에서 찾아 3행 가격. $로 묶어야 아래로 끌 때 표가 안 밀림.</span></li>
+  <li><span class="st-t">총매출</span><code>=SUM(M6:M82)</code> — 이것이 해 찾기 목표 셀. 몇 명이 샀나: <code>=COUNTIF($L$6:$L$82, O10)</code>.</li>
+</ol>
+<div class="bx bx-key">
+  <div class="bx-t"><span class="dot"></span>교수님 확인 사항</div>
+  <ul>
+    <li>잉여 = 0일 때 살지 말지, 동점일 때 어느 상품인지는 상관없음 (총매출만 보니까).</li>
+    <li>한계비용이 상품마다 다르면 더 현실적이지만 지금은 단순하게.</li>
+  </ul>
+</div>
+
+<h2><span class="h2no">6</span>해 찾기: 왜 Evolutionary인가</h2>
+<div class="bx bx-def">
+  <div class="bx-t"><span class="dot"></span>개념 <span class="en">해법 세 가지 — 모형 모양으로 고른다</span></div>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Simplex LP</th><th>GRG 비선형</th><th>Evolutionary</th></tr></thead>
+    <tbody>
+      <tr><td class="l">선형 모형 — 변수 × 상수의 합. 대부분의 마케팅 모형은 비선형.</td><td class="l">매끄러운 비선형 — 변수끼리 곱하기·나누기·거듭제곱 (4강 수요곡선 가격).</td><td class="l">꺾이는 모형 — IF, MAX, MIN, ABS, COUNTIF, SUMIF가 들어감.</td></tr>
+    </tbody>
+  </table></div>
+  <p>묶음 모형은 손님이 상품을 바꾸는 순간 매출이 뚝 뛰어서 <span class="k-red">GRG가 따라갈 기울기가 없다</span> → Evolutionary (무작위 탐색). 해법은 문제에서 알려준다 (교수님).</p>
+</div>
+<div class="bx bx-ex">
+  <div class="bx-t"><span class="dot"></span>해 찾기 설정 (Verizon)</div>
+  <ul>
+    <li>목표: M3 최대 / 변수: D3:J3 (7칸 드래그) / 제약: D3:J3 ≤ 100, ≥ 0 / 방법: Evolutionary</li>
+    <li>옵션 (교재): 최대 시간 3,600초, 돌연변이율 0.5, 모집단 100, 개선 없는 최대 시간 300초, 수렴 0.0001. <b>변수 범위 말고 다른 제약은 넣지 말고 목표에 벌점으로.</b></li>
+    <li>Evolutionary는 오래 걸리니 기다림. 가격이 범위 끝에 붙으면 범위를 늘림. Esc로 중단.</li>
+    <li>무작위라 사람마다 가격이 조금 다름 → <span class="k-blue">총매출이 거의 같으면 정상</span>. "함수만 맞으면 최적 가격이 나랑 조금 달라도 괜찮음."</li>
+  </ul>
+</div>
+
+<h2><span class="h2no">7</span>벌점 (Penalty): 이상한 해 막기</h2>
+<p>첫 해 찾기 결과 (교재 그림 5-5, 매출 $3,413.70):</p>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>조합</th><th>가격</th></tr></thead>
+<tbody>
+<tr><td>1</td><td class="l">인터넷</td><td class="warn">$74.35</td></tr>
+<tr><td>2</td><td class="l">TV</td><td>$35.00</td></tr>
+<tr><td>3</td><td class="l">휴대폰</td><td class="warn">$82.16</td></tr>
+<tr><td>4</td><td class="l">인터넷+TV</td><td class="warn">$69.99</td></tr>
+<tr><td>5</td><td class="l">인터넷+휴대폰</td><td>$69.99</td></tr>
+<tr><td>6</td><td class="l">TV+휴대폰</td><td>$69.99</td></tr>
+<tr><td>7</td><td class="l">셋 다</td><td>$89.95</td></tr>
+</tbody></table></div>
+<div class="bx bx-warn">
+  <div class="bx-t"><span class="dot"></span>문제 <span class="en">가격 역전 (Price Reversal)</span></div>
+  <p>인터넷 단품 $74.35인데 인터넷+TV는 $69.99 — <span class="k-red">더 많이 주는 게 $4.36 더 싸다</span>. 해 찾기가 이런 이유: 이 가격에선 아무도 인터넷 단품을 안 사서 높게 매겨도 매출에 상관없기 때문. 하지만 시장에 내면 손님이 이상하게 본다.</p>
+</div>
+<ol class="steps">
+  <li><span class="st-t">작은 상품 − 큰 상품 12쌍 나열</span>P70:P81에 단품 vs 그걸 포함한 묶음, 2개 묶음 vs 3개 묶음의 가격 차이 (예: 인터넷 − 인터넷+TV = $4.36). <span class="why">양수 = 역전이라는 뜻.</span></li>
+  <li><span class="st-t">역전만 남기기</span>Q열 <code>=IF(P70&lt;0, 0, P70)</code> → 양수(역전)면 그대로, 아니면 0. Q82에 합계. <span class="why">역전의 총량을 숫자 하나로.</span></li>
+  <li><span class="st-t">목표에 벌점</span>새 목표 <code>=SUM(M6:M82) - 500*Q82</code> — 역전 $1당 $500 감점. 해 찾기 설정은 그대로. <span class="why">제약으로 넣는 것과 비슷한 역할을 목표 셀 안에서.</span></li>
+  <li><span class="st-t">다시 실행</span>벌점이 너무 크면(100만) 잘 안 풀리고 너무 작으면 역전이 남는다 — <span class="why">"1,000이든 10이든 해보고 결정" (시행착오). 제약으로 넣어도 된다 (학생 질문 답).</span></li>
+</ol>
+<div class="bx bx-tip">
+  <div class="bx-t"><span class="dot"></span>최종 결과 (교재 그림 5-7, 매출 $3,413.90, 역전 없음)</div>
+  <ul>
+    <li>인터넷 $47.41 · TV $35.00 · 휴대폰 $67.87 · 아무 두 개 $70.00 · 셋 다 $89.95 → 셋째 서비스는 $19.95만 더 내면 됨. 단품을 비싸게 해서 묶음으로 유도.</li>
+    <li>역전을 고쳐도 매출은 거의 그대로 — 역전된 상품은 어차피 아무도 안 샀기 때문.</li>
+    <li>모든 조합에 가격을 매기면 따로·혼합·순수 묶음 중 뭐가 나은지 최적화가 정해 준다.</li>
+  </ul>
+</div>
+<div class="bx bx-ex">
+  <div class="bx-t"><span class="dot"></span>수업 파일 결과 (참고)</div>
+  <ul>
+    <li>인터넷 $57.61, TV $34.99, 휴대폰 $48.62, 두 개 묶음 $69.6~69.9, 셋 다 $83.89 → <b>매출 $3,390.97</b>, 벌점 0.</li>
+    <li>구매: 안 삼 25, TV 17, 인터넷+TV 7, 인터넷+휴대폰 2, TV+휴대폰 1, 셋 다 25.</li>
+    <li>수업 시연 결과는 벌점 넣고 약 $3,309, 안 삼 22명. 숫자는 사람마다 조금 달라도 됨, 함수가 맞으면 OK.</li>
+  </ul>
+</div>
+
+<h2><span class="h2no">8</span>시험 포인트 정리</h2>
+<div class="bx bx-warn">
+  <div class="bx-t"><span class="dot"></span>놓치기 쉬운 곳</div>
+  <ul>
+    <li>손님 규칙: 잉여가 가장 큰 상품, <span class="k-red">다 음수면 안 산다</span>.</li>
+    <li>IF·MAX·MATCH가 들어가면 GRG 안 됨 → <span class="k-red">Evolutionary</span>.</li>
+    <li>MATCH 마지막 인수 0 빼먹으면 매출이 달라진다.</li>
+    <li>수식을 77명 끝까지 채웠는지 먼저 확인.</li>
+    <li>역전이 나오면 벌점을 목표에 넣고 다시 실행 — 벌점 크기는 시행착오.</li>
+  </ul>
+</div>
+
+</article>
+</body>
+</html>

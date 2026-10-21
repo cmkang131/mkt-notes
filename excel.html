@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>엑셀 레시피 — 데이터와 경제학 마케팅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="study-note.css">
+</head>
+<body>
+<article class="paper">
+<div class="phead">
+  <a class="pback" href="index.html">&larr; 목차</a>
+  <span class="pbrand">데이터와 경제학 마케팅</span>
+  <span class="pmeta">CMEF499D &middot; 2026 가을</span>
+</div>
+<h1 class="pagetitle">엑셀 사용법 (퀴즈 대비)</h1>
+<p class="psub">수업 파일별로 수업에서 한 것 · 기본 조작 · 피벗 · 날짜/조회/요약 함수 · 차트와 추세선 · 목표값 찾기 · 해 찾기</p>
+<div class="body notes">
+
+<div class="bx bx-key">
+  <div class="bx-t"><span class="dot"></span>파일 안내</div>
+  <ul>
+    <li>연습용 파일: <a href="files/마케팅_엑셀_연습.xlsx">마케팅_엑셀_연습.xlsx</a> (수업 파일 합본, 노란 칸 채우기, 마지막 시트에 정답)</li>
+    <li>숙제 2(돼지갈비, 날 가격)는 4강 면도기 파일과 같은 구조 → 차트·추세선·해 찾기 토글 참고.</li>
+  </ul>
+</div>
+
+<h2><span class="h2no">1</span>기본 조작</h2>
+<div class="bx bx-warn">
+  <div class="bx-t"><span class="dot"></span>함정 — 수업에서 실제로 나온 실수</div>
+  <ul>
+    <li>이름 붙인 범위는 끌어서 복사해도 안 움직인다 ($ 안 붙여도 됨). <span class="k-red">그래서 <code>=MODE(Cake)</code>를 오른쪽으로 끌면 다른 제품 칸도 계속 Cake</span> → 제품별로 옆으로 끌 땐 H12:H1106 같은 일반 범위로.</li>
+    <li>교수님이 수업 중 실수: 수요표 만들 때 a와 탄력성 셀을 고정 안 해서 아래로 끌자 값이 틀어짐 → 바뀌어야 하는 건 가격뿐, <span class="k-red">나머지 상수 셀은 $로 고정</span>.</li>
+    <li>함수 이름 일부 치고 Tab → 이름과 여는 괄호가 같이 들어감 / Shift+클릭 = 여러 칸 선택.</li>
+  </ul>
+</div>
+
+<h2><span class="h2no">2</span>피벗 테이블</h2>
+<ul>
+  <li>만들기: 데이터 안에 커서 → 삽입 → 피벗 테이블 → 범위 자동 인식 → 새 워크시트 (기존 워크시트도 선택 가능). 필드는 체크만 해도 자동 배치되고 끌어도 됨.</li>
+  <li>필드를 행 / 열 / 값 / 필터로 끌어 넣음 — <b>질문부터 정하고</b> 넣을 자리를 고른다.</li>
+  <li>숫자 필드는 기본이 합계 → 값 우클릭 → 값 필드 설정 → 개수 / 평균. 값에 제품 다섯 개를 넣었으면 <span class="k-red">다섯 개 각각</span> 평균으로 바꿔야 함 (Bakery 요일별: 합계 그대로면 일요일 케이크 15,054처럼 나옴).</li>
+  <li>비율: 값 필드 설정 → 값 표시 형식 → 열 합계 비율 / 행 합계 비율. 같은 필드를 값에 두 번 넣으면 금액과 비율을 나란히 볼 수 있음.</li>
+</ul>
+<div class="bx bx-warn">
+  <div class="bx-t"><span class="dot"></span>비율 세 가지 구분 — 무엇을 분모로 할지 먼저 정하기</div>
+  <ul>
+    <li><b>열 합계 비율</b>: 열마다 100% / <b>행 합계 비율</b>: 행마다 100% / <b>총합계 비율</b>: 표 전체가 100%</li>
+    <li>필드를 행에 놓으면 열 합계 비율, 열에 놓으면 행 합계 비율을 본다.</li>
+  </ul>
+</div>
+<ul>
+  <li>행에 필드 두 개: 위에 둔 필드가 바깥 그룹 (예: Gender 아래 Location → 남·여 × 거주지 6칸). 두 번째 필드를 열에 두면 교차표.</li>
+  <li>Yes/No 같은 텍스트 필드를 값에 넣으면 자동으로 개수.</li>
+  <li>특정 값만 보기: 필터 칸에 넣고 드롭다운에서 Yes만 선택 → 남은 데이터 안에서 비율이 다시 계산됨.</li>
+  <li>"무엇이 더 중요한 요인인가"류 질문: 요인을 행에, 결과(Yes/No)를 열에 두고 행 합계 비율 → 요인 값마다 Yes 비율이 얼마나 벌어지는지 비교.</li>
+  <li>그룹: 행 레이블 우클릭 → 그룹 → 시작, 끝, 간격. ESPN 나이: 시작 8, 간격 10. 소득: 파일 단위가 천 달러라 간격 25, 시작 29. 날짜: 계절성은 월만, 해마다 추세는 연.</li>
+  <li>상위 N: 행 레이블 드롭다운 → 값 필터 → 상위 10 → 숫자 80, 항목 백분율 → 매출 80% 내는 제품만.</li>
+  <li>필터 vs 슬라이서: 필터는 뭘 골랐는지 잘 안 보임. 슬라이서: 피벗 안에 커서 → 삽입 → 슬라이서 → 필드 체크. 열 개수: 슬라이서 선택 → 슬라이서 탭 → 단추 → 열.</li>
+</ul>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">B5</span><span class="fx">fx</span><span>48.0243953294412%</span></div>
+  <table>
+    <tr><th></th><th class="l">A</th><th class="l">B</th></tr>
+    <tr><td class="rowhdr">3</td><td class="l"><b>행 레이블 ⌄</b></td><td class="l"><b>합계 : Price</b></td></tr>
+    <tr><td class="rowhdr">4</td><td class="l">downtown</td><td>51.98%</td></tr>
+    <tr><td class="rowhdr">5</td><td class="l">uptown</td><td>48.02%</td></tr>
+    <tr><td class="rowhdr">6</td><td class="l"><b>총합계</b></td><td><b>100.00%</b></td></tr>
+  </table>
+  <div class="xl-cap">PARETO 매장별 피벗 결과 (열 합계 비율). 같은 필드를 값에 두 번 넣어 금액과 비율을 나란히 볼 수 있다.</div>
+</div>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">B5</span><span class="fx">fx</span><span>개수 : Age</span></div>
+  <table>
+    <tr><th></th><th class="l">A</th><th>B</th></tr>
+    <tr><td class="rowhdr">3</td><td class="l"><b>행 레이블 ⌄</b></td><td><b>개수 : Age</b></td></tr>
+    <tr><td class="rowhdr">4</td><td class="l">0-9</td><td>2</td></tr>
+    <tr><td class="rowhdr">5</td><td class="l">10-19</td><td>133</td></tr>
+    <tr><td class="rowhdr">6</td><td class="l">20-29</td><td>310</td></tr>
+    <tr><td class="rowhdr">7</td><td class="l">30-39</td><td>276</td></tr>
+    <tr><td class="rowhdr">8</td><td class="l">40-49</td><td>156</td></tr>
+    <tr><td class="rowhdr">9</td><td class="l">50-59</td><td>60</td></tr>
+    <tr><td class="rowhdr">10</td><td class="l">60-69</td><td>34</td></tr>
+    <tr><td class="rowhdr">11</td><td class="l">70-79</td><td>28</td></tr>
+    <tr><td class="rowhdr">12</td><td class="l">80-89</td><td>11</td></tr>
+    <tr><td class="rowhdr">13</td><td class="l">90-99</td><td>6</td></tr>
+    <tr><td class="rowhdr">14</td><td class="l">100-110</td><td>3</td></tr>
+    <tr><td class="rowhdr">15</td><td class="l">&gt;110</td><td>5</td></tr>
+    <tr><td class="rowhdr">16</td><td class="l"><b>총합계</b></td><td><b>1024</b></td></tr>
+  </table>
+  <div class="xl-cap">ESPN 나이 피벗 (수업 파일, 10살 간격 그룹). 100세 넘는 값 8개 = 이상값. 슬라이드는 시작 8로 묶어 18-27·28-37 구간을 봤다.</div>
+</div>
+
+<h2><span class="h2no">3</span>날짜와 조회 함수 (Bakery)</h2>
+<ul>
+  <li>요일 번호: <code>=WEEKDAY(G12, 2)</code> → 월=1 … 일=7. 두 번째 인수: 1 = 일요일 1…토요일 7 / 2 = 월요일 1…일요일 7 / 3 = 월요일 0…일요일 6.</li>
+  <li>요일 이름: <code>=VLOOKUP(F12, $A$13:$B$19, 2, FALSE)</code> — A13:B19에 1~7과 요일 이름 표를 만들어 둠.</li>
+  <li>월: <code>=MONTH(G12)</code> → <code>=VLOOKUP(N12, $A$22:$B$33, 2, FALSE)</code>로 월 이름.</li>
+</ul>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">E12</span><span class="fx">fx</span><span>=VLOOKUP(F12,$A$13:$B$19,2,FALSE)</span></div>
+  <table>
+    <tr><th></th><th class="l">A</th><th class="l">B</th><th class="l">E</th><th class="l">F</th><th class="l">G</th><th>H</th></tr>
+    <tr><td class="rowhdr">11</td><td class="l"><b>weekday</b></td><td class="l"><b>daywk</b></td><td class="l"></td><td class="l"></td><td class="l"><b>Date</b></td><td><b>Cakes</b></td></tr>
+    <tr><td class="rowhdr">12</td><td class="l">1 Monday</td><td class="c">2</td><td class="selcell l">Tuesday</td><td class="c">2</td><td class="l">2013.1.1</td><td>79</td></tr>
+    <tr><td class="rowhdr">13</td><td class="l">2 Tuesday</td><td class="c">3</td><td class="l">Wednesday</td><td class="c">3</td><td class="l">2013.1.2</td><td>91</td></tr>
+    <tr><td class="rowhdr">14</td><td class="l">3 Wednesday</td><td class="c">4</td><td class="l">Thursday</td><td class="c">4</td><td class="l">2013.1.3</td><td>47</td></tr>
+    <tr><td class="rowhdr">15</td><td class="l">4 Thursday</td><td class="c">5</td><td class="l">Friday</td><td class="c">5</td><td class="l">2013.1.4</td><td>89</td></tr>
+    <tr><td class="rowhdr">16</td><td class="l">5 Friday</td><td class="c">6</td><td class="l">Saturday</td><td class="c">6</td><td class="l">2013.1.5</td><td>112</td></tr>
+    <tr><td class="rowhdr">17</td><td class="l">6 Saturday</td><td class="c">7</td><td class="l">Sunday</td><td class="c">7</td><td class="l">2013.1.6</td><td>89</td></tr>
+    <tr><td class="rowhdr">18</td><td class="l">7 Sunday</td><td class="c">1</td><td class="l">Monday</td><td class="c">1</td><td class="l">2013.1.7</td><td>70</td></tr>
+  </table>
+  <div class="xl-cap">WEEKDAY로 요일 번호(F열)를 만들고, VLOOKUP으로 요일 이름(E열)을 가져온다. 표(A13:B19)는 F4로 고정.</div>
+</div>
+<div class="bx bx-warn">
+  <div class="bx-t"><span class="dot"></span>조회 함수 함정 (3강 정리 복습)</div>
+  <ul>
+    <li>넷째 인수 FALSE/0 = 정확히 일치 — <b>거의 항상 이것, 기본값이 아니라 직접 써야 함</b>. TRUE/1 = 근사 (정렬 안 되면 조용히 틀림).</li>
+    <li>MATCH(값, 범위, 0) — 마지막 0 생략하면 1(근사) → Verizon에서 학생들 매출이 달랐던 원인.</li>
+    <li>HLOOKUP은 가로 표 (Verizon 가격표) 전용. 표 범위를 $로 안 묶으면 아래로 끌 때 둘째 줄부터 틀림.</li>
+    <li>INDEX(표, 행, 열), 행에 0 → 그 열 전체. MATCH+INDEX로 AVERAGEIFS 열을 고르는 식은 숙제 문제.</li>
+  </ul>
+</div>
+
+<h2><span class="h2no">4</span>요약 함수 (Bakery)</h2>
+<ul>
+  <li><code>=AVERAGE(H12:H1106)</code>, MEDIAN, MODE, STDEV → 오른쪽으로 끌면 다른 제품도 (이름 범위 Cake로 넣으면 안 바뀜 — 위 함정).</li>
+  <li><code>=LARGE($H$12:$H$1106, 5)</code> → 5번째로 큰 판매량 (케이크 148) / <code>=SMALL(..., 3)</code> → 3번째로 작은 값 (38).</li>
+  <li>COUNTIF 연습: 프로모션 날 수 <code>=COUNTIF($M$12:$M$1106, $Q23)</code> (Q23에 promotion), <code>=COUNTIF(Cake, "&gt;=120")</code>, 이하는 "&lt;=".</li>
+  <li>조건 여러 개: <code>=COUNTIFS(E12:E1106, Q32, Cake, "&lt;&gt;0")</code> → 월요일이면서 판매 0이 아닌 날 (학생 질문에서 나옴).</li>
+  <li>요일 일수: 월·금·토·일 156일, 화·수·목 157일.</li>
+</ul>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">S15</span><span class="fx">fx</span><span>=COUNTIF(Cake,"&lt;"&amp;R15)</span></div>
+  <table>
+    <tr><th></th><th class="l">Q</th><th class="l">R</th><th>S</th></tr>
+    <tr><td class="rowhdr">11</td><td class="l">5th largest cake sold</td><td>148</td><td class="l"></td></tr>
+    <tr><td class="rowhdr">12</td><td class="l">3rd smallest cake sold</td><td>38</td><td class="l"></td></tr>
+    <tr><td class="rowhdr">14</td><td class="l"><b>Cake</b></td><td class="l"></td><td class="l"><b>Outliers</b></td></tr>
+    <tr><td class="rowhdr">15</td><td class="l">MEAN-2SIGMA</td><td>45.72702047</td><td class="selcell">13</td></tr>
+    <tr><td class="rowhdr">16</td><td class="l">MEAN+2SIGMA</td><td>126.8337101</td><td>35</td></tr>
+    <tr><td class="rowhdr">17</td><td class="l">TOTAL</td><td>1095</td><td class="l"></td></tr>
+    <tr><td class="rowhdr">18</td><td class="l">WITHIN 2 SIGMA</td><td>1047</td><td class="l"></td></tr>
+    <tr><td class="rowhdr">19</td><td class="l">FRACTION</td><td>95.6%</td><td class="l"></td></tr>
+  </table>
+  <div class="xl-cap">±2σ 이상값 계산. 비교 기호는 따옴표, 셀 값은 &amp;로 붙임 ("&lt;"&amp;R15). 안쪽 1,047일 = 95.6%.</div>
+</div>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">S32</span><span class="fx">fx</span><span>=SUMIF($E$12:$E$1106,Q32,Cake)</span></div>
+  <table>
+    <tr><th></th><th class="l">Q</th><th>R</th><th>S</th><th>T</th><th>U</th></tr>
+    <tr><td class="rowhdr">31</td><td class="l"><b>Cakes</b></td><td class="c"><b>How many days</b></td><td class="c"><b>Total Sales</b></td><td class="c"><b>Average Daily sales</b></td><td class="c"><b>Rank</b></td></tr>
+    <tr><td class="rowhdr">32</td><td class="l">Monday</td><td>156</td><td>12259</td><td>78.58</td><td>4</td></tr>
+    <tr><td class="rowhdr">33</td><td class="l">Tuesday</td><td>157</td><td>12079</td><td>76.94</td><td>6</td></tr>
+    <tr><td class="rowhdr">34</td><td class="l">Wednesday</td><td>157</td><td>11986</td><td>76.34</td><td>7</td></tr>
+    <tr><td class="rowhdr">35</td><td class="l">Thursday</td><td>157</td><td>12148</td><td>77.38</td><td>5</td></tr>
+    <tr><td class="rowhdr">36</td><td class="l">Friday</td><td>156</td><td>14770</td><td>94.68</td><td>3</td></tr>
+    <tr><td class="rowhdr">37</td><td class="l">Saturday</td><td>156</td><td class="hlcell">16181</td><td class="hlcell">103.72</td><td class="hlcell">1</td></tr>
+    <tr><td class="rowhdr">38</td><td class="l">Sunday</td><td>156</td><td>15054</td><td>96.5</td><td>2</td></tr>
+  </table>
+  <div class="xl-cap">요일별 표. 며칠 COUNTIF → 총판매 SUMIF → 평균 = 나누기 또는 AVERAGEIF → 순위 RANK(끝 0 = 큰 값이 1등, 범위 $ 고정).</div>
+</div>
+
+<h2><span class="h2no">5</span>차트, 추세선, 목표값 찾기 (9/23 파일)</h2>
+<ul>
+  <li>수요표: <code>=$K$3*J7^($G$1)</code>을 가격 50~150 옆에 채우고 차트로 그린 것 (a는 아래 목표값 찾기로 구함).</li>
+  <li>두 번째 점 만들기: 가격 <code>=E4*(1+0.01)</code>, 수량 <code>=F4*(1+G1/100)</code> (G1 = 탄력성 −2) → (100, 500), (101, 490).</li>
+  <li>차트: 두 점 선택 → 삽입 → 추천 차트 → 분산형 (엑셀은 x = 가격, y = 수량으로 식을 보여줌 → 가격 열이 왼쪽).</li>
+  <li>추세선: 점 우클릭 → 추세선 추가 → 선형 → 맨 아래 차트에 수식 표시 → q = 1500 − 10p. 2차 수요(ChapStick)는 다항식 차수 2. 거듭제곱 추세선도 있음 → 두 방법으로 서로 검산 가능.</li>
+</ul>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">F5</span><span class="fx">fx</span><span>=F4*(1+G1/100)</span></div>
+  <table>
+    <tr><th></th><th class="l">E</th><th class="l">F</th><th class="l">G</th></tr>
+    <tr><td class="rowhdr">1</td><td class="l"></td><td class="l"><b>Elasticity</b></td><td class="c">-2</td></tr>
+    <tr><td class="rowhdr">4</td><td class="l"><b>Price</b></td><td class="l"><b>Quantity Sold</b></td><td class="l"></td></tr>
+    <tr><td class="rowhdr">5</td><td>100</td><td>500</td><td class="l"></td></tr>
+    <tr><td class="rowhdr">6</td><td>101</td><td class="selcell">490</td><td class="l"></td></tr>
+  </table>
+  <div class="xl-cap">두 번째 점: 가격 1% 올리면 수량은 탄력성(%)만큼. 추세선에 수식 표시 → y = −10x + 1500.</div>
+</div>
+<div class="dlg">
+  <div class="dlg-t">목표값 찾기 (Goal Seek)</div>
+  <div class="dlg-b">
+    <div class="dlg-row"><span class="k">수식 셀:</span><span class="v sel">$K$5</span></div>
+    <div class="dlg-row"><span class="k">찾는 값:</span><span class="v">500</span></div>
+    <div class="dlg-row"><span class="k">값을 바꿀 셀:</span><span class="v">$K$3</span></div>
+    <div class="dlg-note">거듭제곱 수요 q = a·pᵇ: K3에 아무 a, K5에 =K3*J5^(G1). 확인 → a = 5,000,000.</div>
+  </div>
+  <div class="dlg-foot"><span class="dlg-btn">취소</span><span class="dlg-btn primary">확인</span></div>
+</div>
+<ul>
+  <li>Sheet2 (면도기): 탄력성 셀(G1)에 이름 <b>Elas</b>를 붙여서 <code>=G5*(1+Elas/100)</code> → (5, 6), (5.05, 5.88) → 같은 방법으로 추세선 q = 18 − 2.4p.</li>
+  <li><span class="k-red">추세선 식을 수량 셀에 직접 입력</span>: G9 <code>=18-2.4*G8</code> — 이게 없으면 해 찾기가 가격을 바꿔도 이익이 안 변함. 탄력성 바꾸면 추세선 새로 구해서 이 식도 다시 침 (−0.3이면 q = 7.8 − 0.36p).</li>
+</ul>
+
+<h2><span class="h2no">6</span>해 찾기 (Solver)</h2>
+<ul>
+  <li>설치: 파일 → 옵션 → 추가 기능 → 아래 관리 Excel 추가 기능 → 이동 → 해 찾기, 분석 도구 체크 (VBA는 안 씀). 위치: 데이터 탭 오른쪽 끝.</li>
+  <li>설정 세 가지: 목표 셀 (최대/최소/지정값) / 변수 셀 (여러 칸 가능) / 제약 (추가 버튼).</li>
+  <li>변수 셀이 떨어져 있으면 "변수 셀 변경" 칸에 쉼표로 입력 ($G$8,$G$20) 또는 Ctrl(맥은 Cmd) 누른 채 클릭.</li>
+  <li>"제한되지 않는 변수를 음이 아닌 수로" 체크 = 가격 ≥ 0.</li>
+  <li>해법은 문제에서 알려줌 (교수님). 이익 식은 (P−C)×Q처럼 아무 형태로 써도 됨.</li>
+  <li>정수 제약: 제약 추가에서 int → 단, 면도기 수요처럼 다른 셀의 함수인 셀은 정수로 못 묶음 (교수님 시연).</li>
+  <li>거듭제곱 수요로 돌릴 때: 가격 셀이 0이면 #DIV/0! → 시작값을 양수로. 결과가 이상하면 시작값 바꿔 한 번 더.</li>
+</ul>
+<div class="dlg">
+  <div class="dlg-t">해 찾기 매개 변수 (면도기)</div>
+  <div class="dlg-b">
+    <div class="dlg-row"><span class="k">목표 설정:</span><span class="v sel">$G$11</span></div>
+    <div class="dlg-row"><span class="k">대상:</span><span class="opt"><span class="on">최대값</span><span class="off">최소값</span><span class="off">지정값:</span></span></div>
+    <div class="dlg-row"><span class="k">변수 셀 변경:</span><span class="v">$G$8</span></div>
+    <div class="dlg-row"><span class="k">해법 선택:</span><span class="v">GRG 비선형</span></div>
+    <div class="dlg-note">☑ 제한되지 않는 변수를 음이 아닌 수로 설정. 날 이익까지 넣을 땐 목표만 $G$15(총이익)로 바꾼다.</div>
+  </div>
+  <div class="dlg-foot"><span class="dlg-btn">닫기</span><span class="dlg-btn primary">해 찾기</span></div>
+</div>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">G11</span><span class="fx">fx</span><span>=G8*G9-G10*G9</span></div>
+  <table>
+    <tr><th></th><th class="l">F</th><th class="l">G</th></tr>
+    <tr><td class="rowhdr">1</td><td class="l">Elasticity</td><td>-2</td></tr>
+    <tr><td class="rowhdr">8</td><td class="l">Price</td><td class="selcell">1</td></tr>
+    <tr><td class="rowhdr">9</td><td class="l">Quantity Demanded</td><td>15.6</td></tr>
+    <tr><td class="rowhdr">10</td><td class="l">Unit cost</td><td>2</td></tr>
+    <tr><td class="rowhdr">11</td><td class="l">Profit of Razr</td><td>-15.6</td></tr>
+    <tr><td class="rowhdr">12</td><td class="l"># Blades per Razr</td><td>50</td></tr>
+    <tr><td class="rowhdr">13</td><td class="l">Profit of a Blade</td><td>0.15</td></tr>
+    <tr><td class="rowhdr">14</td><td class="l">Profit of Blade</td><td>117</td></tr>
+    <tr><td class="rowhdr">15</td><td class="l"><b>Total Profit</b></td><td><b>101.4</b></td></tr>
+    <tr><td class="rowhdr">16</td><td class="l"># blades sold</td><td>780</td></tr>
+  </table>
+  <div class="xl-cap">면도기-날 모형 결과: 면도기 $1.00 (원가 아래), 총이익 $101.4M. 날 판매 =G9*G12.</div>
+</div>
+<div class="dlg">
+  <div class="dlg-t">해 찾기 매개 변수 (Verizon)</div>
+  <div class="dlg-b">
+    <div class="dlg-row"><span class="k">목표 설정:</span><span class="v sel">$M$3</span></div>
+    <div class="dlg-row"><span class="k">대상:</span><span class="opt"><span class="on">최대값</span><span class="off">최소값</span><span class="off">지정값:</span></span></div>
+    <div class="dlg-row"><span class="k">변수 셀 변경:</span><span class="v">$D$3:$J$3</span></div>
+    <div class="dlg-row"><span class="k">제약 조건:</span><span class="v">$D$3:$J$3 &lt;= 100<br>$D$3:$J$3 &gt;= 0</span></div>
+    <div class="dlg-row"><span class="k">해법 선택:</span><span class="v">Evolutionary</span></div>
+    <div class="dlg-note">IF·MAX·MATCH 때문에 꺾여서 GRG 안 됨. Evolutionary는 오래 걸리니 기다린다. 무작위라 사람마다 가격이 조금 다름 → 총매출이 거의 같으면 정상.</div>
+  </div>
+  <div class="dlg-foot"><span class="dlg-btn">닫기</span><span class="dlg-btn primary">해 찾기</span></div>
+</div>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">L6</span><span class="fx">fx</span><span>=IF(K6&gt;0,MATCH(K6,D6:J6,0),0)</span></div>
+  <table>
+    <tr><th></th><th class="c">D</th><th class="c">E</th><th class="c">F</th><th class="c">G</th><th class="c">…</th><th class="c">J</th><th class="c">K</th><th class="c">L</th><th class="c">M</th></tr>
+    <tr><td class="rowhdr">2</td><td>1</td><td>2</td><td>3</td><td>4</td><td class="c">…</td><td>7</td><td class="l" colspan="3"><b>total revenue</b></td></tr>
+    <tr><td class="rowhdr">3</td><td><b>57.61</b></td><td><b>34.99</b></td><td><b>48.62</b></td><td><b>69.63</b></td><td class="c">…</td><td><b>83.89</b></td><td class="l" colspan="3"><b>3390.97</b></td></tr>
+    <tr><td class="rowhdr">4</td><td class="l" colspan="10">Customers WTP for Each Product → 잉여 → max surp → product purchased → revenue</td></tr>
+    <tr><td class="rowhdr">6</td><td>-40.1</td><td>-54.1</td><td>-45.1</td><td>-27.99</td><td class="c">…</td><td>-59.4</td><td>0.01</td><td class="selcell">0</td><td>0.0</td></tr>
+    <tr><td class="rowhdr">7</td><td>-0.11</td><td>0.4</td><td>-13.9</td><td>-48.89</td><td class="c">…</td><td>7.11</td><td>7.4</td><td>7</td><td>83.8871</td></tr>
+  </table>
+  <div class="xl-cap">Verizon 시트 구조: D2:J2 상품 번호, D3:J3 가격(변수 셀), D6:J6 잉여 = 가치 − 가격, K 최대 잉여, L 산 상품 번호, M 매출. 6행을 만들고 82행까지 채운다 (더블클릭).</div>
+</div>
+<div class="xl">
+  <div class="xl-bar"><span class="cell-name">Q70</span><span class="fx">fx</span><span>=IF(P70&lt;0,0,P70)</span></div>
+  <table>
+    <tr><th></th><th class="l">O</th><th class="l">P</th><th class="l">Q</th></tr>
+    <tr><td class="rowhdr">69</td><td class="l"><b>Penalty</b></td><td class="l"><b>dev</b></td><td class="l"><b>penalty</b></td></tr>
+    <tr><td class="rowhdr">70</td><td class="l">TV-(I+TV)</td><td>-34.95</td><td>0</td></tr>
+    <tr><td class="rowhdr">71</td><td class="l">I-(I+TV)</td><td>-12.33</td><td>0</td></tr>
+    <tr><td class="rowhdr">72</td><td class="l">Cell-(I+Cell)</td><td>-21.27</td><td>0</td></tr>
+    <tr><td class="rowhdr">…</td><td class="l">… (2개 묶음 vs 3개 묶음, 단품 vs 셋 다 포함 12쌍)</td><td>…</td><td>0</td></tr>
+    <tr><td class="rowhdr">81</td><td class="l">I-All</td><td>-26.28</td><td>0</td></tr>
+    <tr><td class="rowhdr">82</td><td class="l"><b>Total</b></td><td class="l"></td><td><b>0</b></td></tr>
+  </table>
+  <div class="xl-cap">벌점 블록: P열 = 작은 상품 − 큰 상품 가격 차, Q열 = 양수(역전)만 남김. 새 목표 =SUM(M6:M82)-500*Q82.</div>
+</div>
+
+<h2><span class="h2no">7</span>엑셀 메뉴 한글 이름</h2>
+<div class="bx bx-ex">
+  <div class="bx-t"><span class="dot"></span>메뉴 경로 모음</div>
+  <ul>
+    <li>피벗 테이블: 삽입 → 피벗 테이블 / 값 필드 설정: 값 칸 우클릭 / 그룹: 행 레이블 우클릭 / 슬라이서: 삽입 → 슬라이서</li>
+    <li>목표값 찾기: 데이터 → 가상 분석(What-If Analysis) → 목표값 찾기(Goal Seek)</li>
+    <li>해 찾기: 데이터 → 해 찾기(Solver) — 없으면 파일 → 옵션 → 추가 기능 → 이동 → 해 찾기 체크</li>
+    <li>추세선: 차트 점 우클릭 → 추세선 추가 → 차트에 수식 표시</li>
+  </ul>
+</div>
+
+</article>
+</body>
+</html>
