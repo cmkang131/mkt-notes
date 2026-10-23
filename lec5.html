@@ -67,14 +67,14 @@
   <li><span class="st-t">고객별 잉여 계산</span>6행에 손님1의 상품별 잉여 = 가치 − 가격 (예: 인터넷+TV <code>=A6+B6-G$3</code>). <span class="why">G$3의 $는 가격 행을 고정해 아래로 복사해도 안 밀리게. (교재는 가격이 4행, 수업 파일은 3행)</span></li>
   <li><span class="st-t">77명 끝까지 복사</span>6행만 만들고 D6:M6 선택 → 모서리 더블클릭으로 82행까지. <span class="why">교수님이 끝까지 안 채워서 틀린 적 있음. "오른쪽 아래 더블클릭해서 끝까지 채웠는지 먼저 확인".</span></li>
   <li><span class="st-t">최대 잉여</span>K열 <code>=MAX(D6:J6)</code>.</li>
-  <li><span class="st-t">산 상품 번호</span>L열 <code>=IF(K6&gt;0, MATCH(K6, D6:J6, 0), 0)</code>. <span class="why">잉여가 양수면 몇 번째 상품인지, 아니면 0 (안 삼). 최대 잉여 동점이면 첫 번째 일치 상품 (가격이 같으면 매출은 동일). MATCH 마지막 0을 빼먹으면 비슷한 값을 골라버림. 수업에서 학생들 매출이 달랐던 이유.</span></li>
+  <li><span class="st-t">산 상품 번호</span>L열 <code>=IF(K6&gt;0, MATCH(K6, D6:J6, 0), 0)</code>. <span class="why">잉여가 양수면 몇 번째 상품인지, 아니면 0 (안 삼). 최대 잉여 동점이면 첫 번째 일치 상품을 고른다. MATCH 마지막 0을 빼먹으면 비슷한 값을 골라버림. 수업에서 학생들 매출이 달랐던 이유.</span></li>
   <li><span class="st-t">매출</span>M열 <code>=IF(L6=0, 0, HLOOKUP(L6, $D$2:$J$3, 2, FALSE))</code>. <span class="why">2행 번호에서 찾아 3행 가격. $로 묶어야 아래로 끌 때 표가 안 밀림.</span></li>
   <li><span class="st-t">총매출</span><code>=SUM(M6:M82)</code>. 이것이 해 찾기 목표 셀. 몇 명이 샀나: <code>=COUNTIF($L$6:$L$82, O10)</code>.</li>
 </ol>
 <div class="nb">
   <p class="bx-h"><b>교수님 확인 사항</b></p>
   <ul>
-    <li>잉여 = 0일 때 살지 말지, 동점일 때 어느 상품인지는 상관없음 (총매출만 보니까).</li>
+    <li>이 모형은 최대 잉여가 0이면 구매하지 않고, 양수에서 동점이면 첫 번째 상품을 고른다고 가정한다. 동점 상품의 가격은 다를 수 있으므로, 다른 선택 규칙은 총매출을 바꿀 수 있다.</li>
     <li>한계비용이 상품마다 다르면 더 현실적이지만 지금은 단순하게.</li>
   </ul>
 </div>
