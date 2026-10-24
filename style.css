@@ -53,3 +53,6 @@ a.tap:hover{background:#f2f2f2;border-color:#555}
 a.tap:active{transform:translateY(1px)}
 .to-root{color:var(--gray);text-decoration:none;border-bottom:1px dashed #b9bfc9}
 .to-root:hover{color:var(--ink)}
+
+/* 모바일에서 맨 위로 버튼이 위젯 캔버스를 가리지 않도록 숨김 (mkt 로컬, v5 레이어는 유지) */
+@media(max-width:560px){.to-top{display:none!important}}
