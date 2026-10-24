@@ -226,7 +226,7 @@
     var b = node(
       "button",
       parent,
-      "appearance:none;min-height:36px;padding:7px 13px;" +
+      "appearance:none;min-height:44px;padding:10px 16px;" +
       "box-sizing:border-box;border:1px solid " + INK +
       ";border-radius:0;background:#fff;color:" + INK +
       ";font:600 12px/1.5 " + FONT +
@@ -1063,7 +1063,14 @@
       "그 기간에 전원 구매합니다. 재구매·구매 지연·원가·할인·" +
       "경쟁 반응·기존 구매자의 환불 및 가격보장은 제외합니다." +
       "<br><strong>모든 가격·규모·기간 설정은 학습용 " +
-      "illustrative(예시용) 값입니다.</strong>";
+      "illustrative(예시용) 값입니다.</strong>" +
+      "<br><strong>구조적 결과:</strong> 같은 고객 집단에서 " +
+      "세그먼트별 WTP를 완전히 회수하는 이상화된 스키밍의 " +
+      "총매출은 어떤 슬라이더 설정에서도 단일 침투 가격의 " +
+      "총매출 이상입니다 (약우세). 침투 가격의 실제 강점인 " +
+      "빠른 시장 점유, 확산·입소문, 경쟁자 진입 차단, " +
+      "규모의 경제는 이 모형에 없습니다. 격차가 언제 " +
+      "커지는지 슬라이더로 확인해 보세요.";
 
     var inputs = controls(root);
 
@@ -1530,18 +1537,24 @@
       var skim = s.skimRevenue[3];
       var pen = s.penRevenue[3];
 
+      // Structural fact of this idealized model: skimming sells
+      // every segment at its own WTP, so its total revenue equals
+      // the full WTP sum and never falls below any single
+      // penetration price. Say so explicitly instead of implying
+      // a reachable penetration win.
       var conclusion;
 
       if (skim > pen + 1e-9) {
         conclusion =
-          "현재 설정에서는 스키밍이 더 높은 WTP를 세그먼트별로 " +
-          "회수하므로 고정 침투 가격보다 매출이 큽니다.";
-      } else if (pen > skim + 1e-9) {
-        conclusion =
-          "현재 설정에서는 침투 가격의 누적 매출이 더 큽니다.";
+          "현재 설정에서도 스키밍의 누적 매출이 침투보다 큽니다. " +
+          "이 모형에서는 우연이 아니라 구조입니다: 스키밍은 모든 " +
+          "세그먼트를 각자의 WTP에 팔아 총매출 Σ(WTPᵢ×규모ᵢ)를 " +
+          "회수하므로, 어떤 단일 침투 가격보다 항상 크거나 같습니다.";
       } else {
         conclusion =
-          "현재 설정에서는 두 전략의 최종 매출이 같습니다.";
+          "두 전략의 최종 매출이 같습니다. 침투 가격이 모든 " +
+          "구매 세그먼트의 WTP를 넘지 않는 경계 경우로, 이 모형에서 " +
+          "침투가 도달할 수 있는 최대 매출입니다 (스키밍과 동률).";
       }
 
       summary.innerHTML =
