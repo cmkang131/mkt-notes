@@ -263,12 +263,59 @@
     });
   }
 
+  var plotCanvasInstances = [];
+  var plotCanvasResizeTimer = null;
+  var plotCanvasResizeListenerInstalled = false;
+
+  function resizePlotCanvasInstances() {
+    for (var i = 0; i < plotCanvasInstances.length; i++) {
+      var p = plotCanvasInstances[i];
+
+      if (!p || !p.host || !p.canvas) continue;
+      if (!p.host.isConnected) continue;
+
+      var hostW = p.host.clientWidth || 720;
+      var nextW = Math.max(320, Math.min(720, Math.floor(hostW)));
+
+      if (nextW === p.W) continue;
+
+      p.W = nextW;
+
+      p.canvas.width = nextW * 2;
+      p.canvas.height = p.H * 2;
+      p.canvas.style.width = nextW + "px";
+      p.canvas.style.height = p.H + "px";
+
+      // Setting canvas.width/height resets the context state.
+      // The widget's render() -> chart() -> clear() path restores
+      // the 2x transform and redraws the complete chart.
+      if (typeof p.redraw === "function") {
+        p.redraw();
+      }
+    }
+  }
+
+  function installPlotCanvasResizeListener() {
+    if (plotCanvasResizeListenerInstalled) return;
+
+    plotCanvasResizeListenerInstalled = true;
+
+    window.addEventListener("resize", function () {
+      if (plotCanvasResizeTimer !== null) {
+        clearTimeout(plotCanvasResizeTimer);
+      }
+
+      plotCanvasResizeTimer = setTimeout(function () {
+        plotCanvasResizeTimer = null;
+        resizePlotCanvasInstances();
+      }, 100);
+    });
+  }
+
   function plotCanvas(parent, height) {
-    // Use the existing V6 canvas helper.
     // Fit the logical canvas to the host width so the full chart
-    // (current-price point and right axis end) is visible by default on
-    // phones and desktop. Previously fixed at 720 CSS px with horizontal
-    // pan, which hid the key markers off-screen by default.
+    // (current-price point and right axis end) stays visible on phones
+    // and desktop, on mount and on viewport resize in both directions.
     var host = node(
       "div",
       parent,
@@ -293,20 +340,25 @@
     var ctx = canvas.getContext("2d");
     ctx.setTransform(2, 0, 0, 2, 0, 0);
 
-    function clear() {
-      ctx.setTransform(2, 0, 0, 2, 0, 0);
-      ctx.clearRect(0, 0, W, height);
-      ctx.fillStyle = "#fff";
-      ctx.fillRect(0, 0, W, height);
-    }
-
-    return {
+    var plot = {
+      host: host,
       canvas: canvas,
       ctx: ctx,
       W: W,
       H: height,
-      clear: clear
+      redraw: null,
+      clear: function () {
+        ctx.setTransform(2, 0, 0, 2, 0, 0);
+        ctx.clearRect(0, 0, plot.W, plot.H);
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, plot.W, plot.H);
+      }
     };
+
+    plotCanvasInstances.push(plot);
+    installPlotCanvasResizeListener();
+
+    return plot;
   }
 
   function chart(p, xr, yr, options) {
@@ -1030,6 +1082,10 @@
       profitChart(m);
     }
 
+    demandPlot.redraw = render;
+    revenuePlot.redraw = render;
+    profitPlot.redraw = render;
+
     render();
   });
 
@@ -1585,6 +1641,9 @@
       priceChart(s);
       cumulativeChart(s);
     }
+
+    pricePlot.redraw = render;
+    revenuePlot.redraw = render;
 
     render();
   });
