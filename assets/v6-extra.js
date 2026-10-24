@@ -265,7 +265,10 @@
 
   function plotCanvas(parent, height) {
     // Use the existing V6 canvas helper.
-    // Its logical drawing coordinates are normalized to 720 CSS px.
+    // Fit the logical canvas to the host width so the full chart
+    // (current-price point and right axis end) is visible by default on
+    // phones and desktop. Previously fixed at 720 CSS px with horizontal
+    // pan, which hid the key markers off-screen by default.
     var host = node(
       "div",
       parent,
@@ -273,31 +276,34 @@
       "box-sizing:border-box;"
     );
 
+    var hostW = host.clientWidth || 720;
+    var W = Math.max(320, Math.min(720, Math.floor(hostW)));
+
     var canvas = document.createElement("canvas");
-    canvas.width = 1440;
+    canvas.width = W * 2;
     canvas.height = height * 2;
     canvas.style.cssText =
-      "display:block;width:720px;height:" + height +
+      "display:block;width:" + W + "px;height:" + height +
       "px;max-width:none;background:#fff;";
 
     host.appendChild(canvas);
 
-    // Maintain readable labels on narrow screens using horizontal
-    // scrolling rather than shrinking a 720px logical canvas.
+    // Labels keep their 11px size at every width: only the plot area
+    // compresses, so text stays readable without panning.
     var ctx = canvas.getContext("2d");
     ctx.setTransform(2, 0, 0, 2, 0, 0);
 
     function clear() {
       ctx.setTransform(2, 0, 0, 2, 0, 0);
-      ctx.clearRect(0, 0, 720, height);
+      ctx.clearRect(0, 0, W, height);
       ctx.fillStyle = "#fff";
-      ctx.fillRect(0, 0, 720, height);
+      ctx.fillRect(0, 0, W, height);
     }
 
     return {
       canvas: canvas,
       ctx: ctx,
-      W: 720,
+      W: W,
       H: height,
       clear: clear
     };
