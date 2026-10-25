@@ -15,7 +15,7 @@
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR','Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:var(--ink);-webkit-tap-highlight-color:transparent}
 svg{max-width:100%}
-.paper{max-width:780px;margin:0 auto;background:#fff;padding:28px 40px 56px}
+.paper{max-width:900px;margin:0 auto;background:#fff;padding:28px 44px 56px}
 .phead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px;color:var(--gray);padding-bottom:10px}
 .phead-c{color:var(--ink);font-weight:700;font-size:13.5px;text-align:center}
 .phead-r{font-size:12.5px;white-space:nowrap}
