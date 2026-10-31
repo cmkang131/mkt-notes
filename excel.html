@@ -129,7 +129,7 @@
 
 <h2><span class="h2no">4</span>요약 함수 (Bakery)</h2>
 <ul>
-  <li><code>=AVERAGE(H12:H1106)</code>, MEDIAN, MODE, STDEV → 오른쪽으로 끌면 다른 제품도 (이름 범위 Cake로 넣으면 안 바뀜. 위 함정 참고). STDEV는 표본 표준편차를 계산하는 기존 함수 이름으로, 현재는 STDEV.S를 사용한다. 모집단 전체의 표준편차는 STDEV.P를 쓴다. 표본인지 모집단 전체인지에 따라 함수를 구분해야 한다.</li>
+  <li><code>=AVERAGE(H12:H1106)</code>, MEDIAN, MODE, STDEV → 오른쪽으로 끌면 다른 제품도 (이름 범위 Cake로 넣으면 안 바뀜. 위 함정 참고). STDEV는 표본 표준편차를 계산하는 기존 함수 이름으로, 현재는 STDEV.S를 사용한다. 모집단 전체의 표준편차는 STDEV.P를 쓴다. 표본인지 모집단 전체인지에 따라 함수를 구분해야 한다. MODE(현재 이름 MODE.SNGL)는 최빈값이 여러 개이면 그중 먼저 등장한 값 하나만 반환한다. 동점인 최빈값을 모두 확인하려면 MODE.MULT를 사용한다.</li>
   <li><code>=LARGE($H$12:$H$1106, 5)</code> → 5번째로 큰 판매량 (케이크 148) / <code>=SMALL(..., 3)</code> → 3번째로 작은 값 (38).</li>
   <li>COUNTIF 연습: 프로모션 날 수 <code>=COUNTIF($M$12:$M$1106, $Q23)</code> (Q23에 promotion), <code>=COUNTIF(Cake, "&gt;=120")</code>, 이하는 "&lt;=".</li>
   <li>조건 여러 개: <code>=COUNTIFS(E12:E1106, Q32, Cake, "&lt;&gt;0")</code> → 월요일이면서 판매 0이 아닌 날 (학생 질문에서 나옴).</li>
