@@ -99,11 +99,11 @@
 <h2><span class="h2no">3</span>날짜와 조회 함수 (Bakery)</h2>
 <ul>
   <li>요일 번호: <code>=WEEKDAY(G12, 2)</code> → 월=1 … 일=7. 두 번째 인수: 1 = 일요일 1…토요일 7 / 2 = 월요일 1…일요일 7 / 3 = 월요일 0…일요일 6.</li>
-  <li>요일 이름: <code>=VLOOKUP(F12, $A$13:$B$19, 2, FALSE)</code>. A13:B19에 1~7과 요일 이름 표를 만들어 둠.</li>
+  <li>요일 이름: <code>=VLOOKUP(F12, $A$12:$B$18, 2, FALSE)</code>. A12:B18에 1~7과 요일 이름 표를 만들어 둠.</li>
   <li>월: <code>=MONTH(G12)</code> → <code>=VLOOKUP(N12, $A$22:$B$33, 2, FALSE)</code>로 월 이름.</li>
 </ul>
 <div class="xl">
-  <div class="xl-bar"><span class="cell-name">E12</span><span class="fx">fx</span><span>=VLOOKUP(F12,$A$13:$B$19,2,FALSE)</span></div>
+  <div class="xl-bar"><span class="cell-name">E12</span><span class="fx">fx</span><span>=VLOOKUP(F12,$A$12:$B$18,2,FALSE)</span></div>
   <table>
     <tr><th></th><th class="l">A</th><th class="l">B</th><th class="l">E</th><th class="l">F</th><th class="l">G</th><th>H</th></tr>
     <tr><td class="rowhdr">11</td><td class="l"><b>weekday</b></td><td class="l"><b>daywk</b></td><td class="l"></td><td class="l"></td><td class="l"><b>Date</b></td><td><b>Cakes</b></td></tr>
@@ -115,7 +115,7 @@
     <tr><td class="rowhdr">17</td><td class="l">6 Saturday</td><td class="c">7</td><td class="l">Sunday</td><td class="c">7</td><td class="l">2013.1.6</td><td>89</td></tr>
     <tr><td class="rowhdr">18</td><td class="l">7 Sunday</td><td class="c">1</td><td class="l">Monday</td><td class="c">1</td><td class="l">2013.1.7</td><td>70</td></tr>
   </table>
-  <div class="xl-cap">WEEKDAY로 요일 번호(F열)를 만들고, VLOOKUP으로 요일 이름(E열)을 가져온다. 표(A13:B19)는 F4로 고정.</div>
+  <div class="xl-cap">WEEKDAY로 요일 번호(F열)를 만들고, VLOOKUP으로 요일 이름(E열)을 가져온다. 표(A12:B18)는 F4로 고정.</div>
 </div>
 <div class="nb">
   <p class="bx-h"><b>조회 함수 함정 (3강 정리 복습)</b></p>
@@ -169,12 +169,12 @@
 <h2><span class="h2no">5</span>차트, 추세선, 목표값 찾기 (9/23 파일)</h2>
 <ul>
   <li>수요표: <code>=$K$3*J7^($G$1)</code>을 가격 50~150 옆에 채우고 차트로 그린 것 (a는 아래 목표값 찾기로 구함).</li>
-  <li>두 번째 점 만들기: 가격 <code>=E4*(1+0.01)</code>, 수량 <code>=F4*(1+G1/100)</code> (G1 = 탄력성 −2) → (100, 500), (101, 490).</li>
+  <li>두 번째 점 만들기: 가격 <code>=E5*(1+0.01)</code>, 수량 <code>=F5*(1+$G$1/100)</code> (G1 = 탄력성 −2) → (100, 500), (101, 490).</li>
   <li>차트: 두 점 선택 → 삽입 → 추천 차트 → 분산형 (엑셀은 x = 가격, y = 수량으로 식을 보여줌 → 가격 열이 왼쪽).</li>
   <li>추세선: 점 우클릭 → 추세선 추가 → 선형 → 맨 아래 차트에 수식 표시 → q = 1500 − 10p. 2차 수요(ChapStick)는 다항식 차수 2. 거듭제곱 추세선도 있음 → 두 방법으로 서로 검산 가능.</li>
 </ul>
 <div class="xl">
-  <div class="xl-bar"><span class="cell-name">F5</span><span class="fx">fx</span><span>=F4*(1+G1/100)</span></div>
+  <div class="xl-bar"><span class="cell-name">F6</span><span class="fx">fx</span><span>=F5*(1+$G$1/100)</span></div>
   <table>
     <tr><th></th><th class="l">E</th><th class="l">F</th><th class="l">G</th></tr>
     <tr><td class="rowhdr">1</td><td class="l"></td><td class="l"><b>Elasticity</b></td><td class="c">-2</td></tr>
@@ -245,7 +245,7 @@
     <div class="dlg-row"><span class="k">변수 셀 변경:</span><span class="v">$D$3:$J$3</span></div>
     <div class="dlg-row"><span class="k">제약 조건:</span><span class="v">$D$3:$J$3 &lt;= 100<br>$D$3:$J$3 &gt;= 0</span></div>
     <div class="dlg-row"><span class="k">해법 선택:</span><span class="v">Evolutionary</span></div>
-    <div class="dlg-note">IF·MAX·MATCH 때문에 꺾여서 GRG 안 됨. Evolutionary는 오래 걸리니 기다린다. 무작위라 사람마다 가격이 조금 다름 → 총매출이 거의 같으면 정상.</div>
+    <div class="dlg-note">Verizon 모형은 IF·MAX·MATCH 등의 함수와 구매 상품 선택 과정 때문에 목적함수가 불연속적이거나 매끄럽지 않을 수 있다. 따라서 미분 정보를 활용하는 GRG 비선형보다 Evolutionary가 적합하다. GRG가 원천적으로 실행 불가능하다는 뜻은 아니지만, 이 모형에서 안정적인 최적해를 찾기 어렵다. Evolutionary는 확률적 탐색을 사용하므로 실행마다 가격과 매출 결과가 달라질 수 있고, 전역 최적해를 보장하지 않는다. 비슷한 총매출이 나오더라도 제약 조건 충족 여부와 목적함수 계산을 확인하고, 필요하면 시작값이나 탐색 설정을 바꿔 반복 실행한다.</div>
   </div>
   <div class="dlg-foot"><span class="dlg-btn">닫기</span><span class="dlg-btn primary">해 찾기</span></div>
 </div>
@@ -256,10 +256,10 @@
     <tr><td class="rowhdr">2</td><td>1</td><td>2</td><td>3</td><td>4</td><td class="c">…</td><td>7</td><td class="l" colspan="3"><b>total revenue</b></td></tr>
     <tr><td class="rowhdr">3</td><td><b>57.61</b></td><td><b>34.99</b></td><td><b>48.62</b></td><td><b>69.63</b></td><td class="c">…</td><td><b>83.89</b></td><td class="l" colspan="3"><b>3390.97</b></td></tr>
     <tr><td class="rowhdr">4</td><td class="l" colspan="10">Customers WTP for Each Product → 잉여 → max surp → product purchased → revenue</td></tr>
-    <tr><td class="rowhdr">6</td><td>-40.1</td><td>-54.1</td><td>-45.1</td><td>-27.99</td><td class="c">…</td><td>-59.4</td><td>0.01</td><td class="selcell">0</td><td>0.0</td></tr>
-    <tr><td class="rowhdr">7</td><td>-0.11</td><td>0.4</td><td>-13.9</td><td>-48.89</td><td class="c">…</td><td>7.11</td><td>7.4</td><td>7</td><td>83.8871</td></tr>
+    <tr><td class="rowhdr">6</td><td>-40.1</td><td>-54.1</td><td>-45.1</td><td>-27.99</td><td class="c">…</td><td>-59.4</td><td class="c">…</td><td class="c">…</td><td class="c">…</td></tr>
+    <tr><td class="rowhdr">7</td><td>-0.11</td><td>0.4</td><td>-13.9</td><td>-48.89</td><td class="c">…</td><td>7.11</td><td class="c">…</td><td class="c">…</td><td class="c">…</td></tr>
   </table>
-  <div class="xl-cap">Verizon 시트 구조: D2:J2 상품 번호, D3:J3 가격(변수 셀), D6:J6 잉여 = 가치 − 가격, K 최대 잉여, L 산 상품 번호, M 매출. 6행을 만들고 82행까지 채운다 (더블클릭).</div>
+  <div class="xl-cap">Verizon 시트 구조: D2:J2 상품 번호, D3:J3 가격(변수 셀), D6:J6 잉여 = 가치 − 가격, K 최대 잉여, L 산 상품 번호, M 매출. 6행을 만들고 82행까지 채운다 (더블클릭). 최대 잉여가 양수이면 L열은 1~7 중 구매 상품 번호를 반환하고, 양수가 아니면 0을 반환한다. 동일한 최대 잉여가 여러 상품에서 발생하면 MATCH는 가장 먼저 일치하는 상품을 선택한다.</div>
 </div>
 <div class="xl">
   <div class="xl-bar"><span class="cell-name">Q70</span><span class="fx">fx</span><span>=IF(P70&lt;0,0,P70)</span></div>
