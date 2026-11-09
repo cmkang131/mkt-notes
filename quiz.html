@@ -26,7 +26,7 @@
   
   <ul>
     <li>퀴즈 예고 (4강): <span class="k-red">면도기 가격과 날 가격 두 개</span>를 구하는 문제.</li>
-    <li>날 가격·날 원가가 따로 주어지면 날 이익 = (날 가격 − 날 원가) × 날 개수, <b>변수 셀 2개</b> (면도기 가격, 날 가격).</li>
+    <li>퀴즈에서는 면도기 가격 p<sub>r</sub>와 날 가격 p<sub>b</sub>를 함께 최적화한다. 면도기 수요를 Q<sub>r</sub>(p<sub>r</sub>), 면도기당 날 수를 n이라 하면 날 판매량은 nQ<sub>r</sub>(p<sub>r</sub>)이다. 날 가격의 탄력성이 주어져 날 개수도 날 가격의 함수가 된다면 n(p<sub>b</sub>)를 현재 점과 탄력성으로 두 번째 점을 만든 뒤 추세선으로 추정한다. 총이익은 (p<sub>r</sub> − c<sub>r</sub>)Q<sub>r</sub>(p<sub>r</sub>) + (p<sub>b</sub> − c<sub>b</sub>)n(p<sub>b</sub>)Q<sub>r</sub>(p<sub>r</sub>)로 계산한다. 해 찾기에서 목표 셀은 총이익 최대, 변수 셀은 면도기 가격과 날 가격 두 셀로 설정한다. 아래 문제 1은 날 개수와 날당 이익을 고정한 1변수 연습이다.</li>
     <li>연습용 파일: <a href="files/마케팅_엑셀_연습.xlsx">마케팅_엑셀_연습.xlsx</a>. 해 찾기 방법(GRG/Evolutionary)은 문제에서 알려줌.</li>
   </ul>
 </div>
@@ -41,7 +41,7 @@
 
 <div class="prob">
   <div class="prob-head">
-    <span class="prob-no">문제 1</span><span class="prob-src">예고된 형식: 면도기와 날(4강 수업 예제)</span>
+    <span class="prob-no">문제 1</span><span class="prob-src">날 이익을 반영한 면도기 가격 최적화 (1변수 연습)</span>
     <div class="prob-q">
       <p>면도기는 현재 $5에 600만 개가 팔리고 탄력성은 −2, 단위원가는 $2다. 손님은 면도기 1개당 날을 50개 사고, 날 1개당 이익은 $0.15다.</p>
       <p>(a) 면도기만 팔 때 최적 가격과 이익을 구하라. (b) 날 이익까지 넣어 총이익을 최대화하는 면도기 가격을 구하고, 가격이 왜 그 방향으로 움직이는지 설명하라.</p>
@@ -145,7 +145,7 @@
     <details class="pd hint"><summary><span class="tgl">힌트</span></summary>
       <div class="pd-body">
         <ul>
-          <li>날짜 범위 E12:E1106, 케이크 범위 Cake (또는 H12:H1106). 인수 순서: AVERAGEIF(조건 범위, 조건, 평균 범위).</li>
+          <li>요일 이름 범위 E12:E1106, 케이크 판매량 범위 Cake (또는 H12:H1106). 인수 순서: AVERAGEIF(조건 범위, 조건, 평균 범위).</li>
           <li>RANK의 셋째 인수 0은 큰 값부터 1등으로 순위를 매긴다는 뜻이다. 비교 범위 T32:T38을 선택한 뒤 F4 키를 눌러 $T$32:$T$38로 절대 참조 처리한다.</li>
           <li>(c) 조건이 두 개: 복수형 함수. "&lt;&gt;0"은 따옴표.</li>
         </ul>
